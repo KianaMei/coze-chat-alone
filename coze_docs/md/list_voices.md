@@ -1,0 +1,325 @@
+https://www.coze.cn/open/docs/developer_guides/list_voices
+
+# 扣子
+创建
+[主页](https://www.coze.cn/sign)[项目开发](https://www.coze.cn/sign)[资源库](https://www.coze.cn/sign)[任务中心](https://www.coze.cn/sign)[效果评测](https://www.coze.cn/sign)[空间配置](https://www.coze.cn/sign)
+[模板商店](https://www.coze.cn/sign)[插件商店](https://www.coze.cn/sign)[作品社区](https://www.coze.cn/sign)[API 管理](https://www.coze.cn/open/playground)[文档中心](https://www.coze.cn/open/docs/guides)
+目录取消固定
+[使用指南](https://www.coze.cn/open/docs/guides)
+[开发指南](https://www.coze.cn/open/docs/dev_how_to_guides)
+[API 和 SDK](https://www.coze.cn/open/docs/developer_guides)
+API 参考
+[API 介绍](https://www.coze.cn/open/docs/developer_guides/coze_api_overview)[更新日志](https://www.coze.cn/open/docs/developer_guides/changelog)[准备工作](https://www.coze.cn/open/docs/developer_guides/preparation)[API Playground](https://www.coze.cn/open/docs/developer_guides/api_playground)
+鉴权
+[鉴权方式概述](https://www.coze.cn/open/docs/developer_guides/authentication)[添加个人访问令牌](https://www.coze.cn/open/docs/developer_guides/pat)[添加服务访问令牌](https://www.coze.cn/open/docs/developer_guides/service_token)[OAuth 应用管理](https://www.coze.cn/open/docs/developer_guides/oauth_apps)[通过示例文件体验 OAuth 授权流程](https://www.coze.cn/open/docs/developer_guides/ouath_demo)[OAuth 授权码授权](https://www.coze.cn/open/docs/developer_guides/oauth_code)[OAuth PKCE](https://www.coze.cn/open/docs/developer_guides/oauth_pkce)[OAuth 设备授权](https://www.coze.cn/open/docs/developer_guides/oauth_device_code)[OAuth JWT 授权（开发者）](https://www.coze.cn/open/docs/developer_guides/oauth_jwt)[OAuth JWT 授权（渠道场景）](https://www.coze.cn/open/docs/developer_guides/oauth_jwt_channel)[OAuth JWT 授权（跨账号授权场景）](https://www.coze.cn/open/docs/developer_guides/oauth_jwt_collaborate)[OAuth JWT 授权（企业特权应用）](https://www.coze.cn/open/docs/developer_guides/oauth_jwt_privilege)[OAuth 授权（多人协作场景）](https://www.coze.cn/open/docs/developer_guides/oauth_collaborate)[鉴权常见问题](https://www.coze.cn/open/docs/developer_guides/authentication_faq)
+智能体和应用
+[创建智能体](https://www.coze.cn/open/docs/developer_guides/create_bot)[更新智能体](https://www.coze.cn/open/docs/developer_guides/update_bot)[发布智能体](https://www.coze.cn/open/docs/developer_guides/publish_bot)[查看智能体列表](https://www.coze.cn/open/docs/developer_guides/bots_list_draft_published)[查看智能体配置](https://www.coze.cn/open/docs/developer_guides/get_metadata_draft_published)[开启或关闭智能体多人协作](https://www.coze.cn/open/docs/developer_guides/switch_bot_develop_mode)[添加智能体的协作者](https://www.coze.cn/open/docs/developer_guides/add_bot_collaborator)[添加应用的协作者](https://www.coze.cn/open/docs/developer_guides/add_app_collaborator)[删除智能体的协作者](https://www.coze.cn/open/docs/developer_guides/remove_bot_collaborator)[删除应用的协作者](https://www.coze.cn/open/docs/developer_guides/remove_app_collaborator)[查看智能体版本列表](https://www.coze.cn/open/docs/developer_guides/list_bot_versions)[复制资源](https://www.coze.cn/open/docs/developer_guides/copy_resource_task)[查询资源复制的结果](https://www.coze.cn/open/docs/developer_guides/query_resource_copy_execution_result)[下架智能体](https://www.coze.cn/open/docs/developer_guides/unpublish_agent)[Bot object](https://www.coze.cn/open/docs/developer_guides/bot_object)[查看应用列表](https://www.coze.cn/open/docs/developer_guides/published_apps_list)[智能体发布回调事件](https://www.coze.cn/open/docs/developer_guides/agent_callback_messages)[智能体删除回调事件](https://www.coze.cn/open/docs/developer_guides/agent_delete_callback_messages)[智能体下架回调事件](https://www.coze.cn/open/docs/developer_guides/agent_unpublished_callback_messages)
+工作空间
+[创建工作空间](https://www.coze.cn/open/docs/developer_guides/create_workspace)[查看空间列表](https://www.coze.cn/open/docs/developer_guides/list_workspace)[修改工作空间基本信息](https://www.coze.cn/open/docs/developer_guides/update_workspace_info)[查看空间成员列表](https://www.coze.cn/open/docs/developer_guides/list_space_member)[批量邀请用户加入空间](https://www.coze.cn/open/docs/developer_guides/add_space_member)[批量移除空间中的用户](https://www.coze.cn/open/docs/developer_guides/remove_space_member)
+文件夹
+[查询文件夹列表](https://www.coze.cn/open/docs/developer_guides/workspace_list_folder)[查询文件夹详情](https://www.coze.cn/open/docs/developer_guides/workspace_read_folder)
+企业/组织
+[成员管理（火山 API）](https://www.coze.cn/open/docs/developer_guides/create_coze_user)[添加团队/企业成员](https://www.coze.cn/open/docs/developer_guides/add_enterprise_member)[修改企业员工的角色](https://www.coze.cn/open/docs/developer_guides/update_enterprise_people)[移除团队/企业成员](https://www.coze.cn/open/docs/developer_guides/remove_enterprise_member)[创建组织](https://www.coze.cn/open/docs/developer_guides/create_organization)[修改组织基本信息](https://www.coze.cn/open/docs/developer_guides/update_organization_info)[查询组织列表](https://www.coze.cn/open/docs/developer_guides/list_organization)[添加组织成员](https://www.coze.cn/open/docs/developer_guides/add_organization_people)[查询组织成员列表](https://www.coze.cn/open/docs/developer_guides/list_organization_people)[修改组织成员角色](https://www.coze.cn/open/docs/developer_guides/update_organization_people)[移除组织成员](https://www.coze.cn/open/docs/developer_guides/remove_organization_member)
+会话与消息
+[创建会话](https://www.coze.cn/open/docs/developer_guides/create_conversation)[查看会话信息](https://www.coze.cn/open/docs/developer_guides/retrieve_conversation)[查看会话列表](https://www.coze.cn/open/docs/developer_guides/list_conversations)[更新会话名称](https://www.coze.cn/open/docs/developer_guides/edit_conversation)[删除会话](https://www.coze.cn/open/docs/developer_guides/delete_conversation)[清除上下文](https://www.coze.cn/open/docs/developer_guides/clear_conversation_context)[创建消息](https://www.coze.cn/open/docs/developer_guides/create_message)[查看消息列表](https://www.coze.cn/open/docs/developer_guides/list_message)[查看消息详情](https://www.coze.cn/open/docs/developer_guides/retrieve_message)[修改消息](https://www.coze.cn/open/docs/developer_guides/modify_message)[删除消息](https://www.coze.cn/open/docs/developer_guides/delete_message)[消息 type 说明](https://www.coze.cn/open/docs/developer_guides/message_type)[提交消息评价](https://www.coze.cn/open/docs/developer_guides/message_feedback)[删除消息评价](https://www.coze.cn/open/docs/developer_guides/delete_message_feedback)
+对话
+[发起对话](https://www.coze.cn/open/docs/developer_guides/chat_v3)[查看对话详情](https://www.coze.cn/open/docs/developer_guides/retrieve_chat)[查看对话消息详情](https://www.coze.cn/open/docs/developer_guides/list_chat_messages)[提交工具执行结果](https://www.coze.cn/open/docs/developer_guides/chat_submit_tool_outputs)[取消进行中的对话](https://www.coze.cn/open/docs/developer_guides/chat_cancel)
+工作流
+[执行工作流](https://www.coze.cn/open/docs/developer_guides/workflow_run)[执行工作流（流式响应）](https://www.coze.cn/open/docs/developer_guides/workflow_stream_run)[恢复运行工作流（流式响应）](https://www.coze.cn/open/docs/developer_guides/workflow_resume)[恢复运行工作流](https://www.coze.cn/open/docs/developer_guides/resume_workflow)[查询工作流异步运行结果](https://www.coze.cn/open/docs/developer_guides/workflow_history)[执行对话流](https://www.coze.cn/open/docs/developer_guides/workflow_chat)[查询输出节点的执行结果](https://www.coze.cn/open/docs/developer_guides/get_node_execute_history_response)[查询工作流列表](https://www.coze.cn/open/docs/developer_guides/get_workflow_list)[查询工作流基本信息](https://www.coze.cn/open/docs/developer_guides/get_workflow_info)[查询工作流的版本列表](https://www.coze.cn/open/docs/developer_guides/list_workflow_version)[开启或关闭工作流多人协作](https://www.coze.cn/open/docs/developer_guides/switch_workflow_develop_mode)[添加工作流协作者](https://www.coze.cn/open/docs/developer_guides/add_workflow_collaborator)[删除工作流协作者](https://www.coze.cn/open/docs/developer_guides/remove_workflow_collaborator)
+文件
+[上传文件](https://www.coze.cn/open/docs/developer_guides/upload_files)[查看文件详情](https://www.coze.cn/open/docs/developer_guides/retrieve_files)
+智能音视频
+ASR、TTS 与音色
+[查看音色列表](https://www.coze.cn/open/docs/developer_guides/list_voices)[语音合成](https://www.coze.cn/open/docs/developer_guides/text_to_speech)[语音识别](https://www.coze.cn/open/docs/developer_guides/audio_transcriptions)[复刻音色](https://www.coze.cn/open/docs/developer_guides/clone_voices)
+RTC 语音
+[创建房间](https://www.coze.cn/open/docs/developer_guides/create_room)[Realtime 上行事件](https://www.coze.cn/open/docs/developer_guides/signaling_uplink_event)[Realtime 下行事件](https://www.coze.cn/open/docs/developer_guides/signaling_downlink_event)[Realtime 事件错误码](https://www.coze.cn/open/docs/developer_guides/realtime_error_codes)
+WebSocket 语音
+[双向流式语音识别](https://www.coze.cn/open/docs/developer_guides/asr_api)[双向流式语音识别事件](https://www.coze.cn/open/docs/developer_guides/asr_event)[双向流式语音合成](https://www.coze.cn/open/docs/developer_guides/tts_api)[双向流式语音合成事件](https://www.coze.cn/open/docs/developer_guides/tts_event)[双向流式语音对话](https://www.coze.cn/open/docs/developer_guides/streaming_chat_api)[双向流式对话上行事件](https://www.coze.cn/open/docs/developer_guides/streaming_chat_event)[双向流式对话下行事件](https://www.coze.cn/open/docs/developer_guides/streaming_chat_downlink_event)
+声纹识别
+[创建声纹组](https://www.coze.cn/open/docs/developer_guides/create_voiceprint_group)[查询声纹组列表](https://www.coze.cn/open/docs/developer_guides/list_voiceprint_group)[更新声纹组信息](https://www.coze.cn/open/docs/developer_guides/update_voiceprint_group)[删除声纹组](https://www.coze.cn/open/docs/developer_guides/delete_voiceprint_group)[创建声纹](https://www.coze.cn/open/docs/developer_guides/create_voiceprint)[更新声纹](https://www.coze.cn/open/docs/developer_guides/update_voiceprint)[查询声纹列表](https://www.coze.cn/open/docs/developer_guides/list_voiceprint)[删除声纹](https://www.coze.cn/open/docs/developer_guides/delete_voiceprint)[声纹特征比对](https://www.coze.cn/open/docs/developer_guides/identify_voiceprint)
+知识库
+[创建知识库](https://www.coze.cn/open/docs/developer_guides/create_dataset)[查看知识库列表](https://www.coze.cn/open/docs/developer_guides/list_dataset)[修改知识库信息](https://www.coze.cn/open/docs/developer_guides/update_dataset)[删除知识库](https://www.coze.cn/open/docs/developer_guides/delete_dataset)[创建知识库文件](https://www.coze.cn/open/docs/developer_guides/create_knowledge_files)[修改知识库文件](https://www.coze.cn/open/docs/developer_guides/modify_knowledge_files)[查看知识库文件列表](https://www.coze.cn/open/docs/developer_guides/list_knowledge_files)[查看知识库文件上传进度](https://www.coze.cn/open/docs/developer_guides/get_dataset_progress)[更新知识库图片描述](https://www.coze.cn/open/docs/developer_guides/update_image_caption)[查看知识库图片列表](https://www.coze.cn/open/docs/developer_guides/get_images)[删除知识库文件](https://www.coze.cn/open/docs/developer_guides/delete_knowdge_files)
+插件
+[查询付费插件列表](https://www.coze.cn/open/docs/developer_guides/list_plugin)[查询插件分类](https://www.coze.cn/open/docs/developer_guides/list_plugin_category)[查询插件详情](https://www.coze.cn/open/docs/developer_guides/get_plugin)[批量查询插件信息](https://www.coze.cn/open/docs/developer_guides/batch_get_plugins_info)[调用插件工具](https://www.coze.cn/open/docs/developer_guides/call_plugin_tool)[申请插件扩容回调事件](https://www.coze.cn/open/docs/developer_guides/benefit_plugin_scale_requested)[插件扩容到期回调事件](https://www.coze.cn/open/docs/developer_guides/benefit_plugin_scale_expired)
+变量
+[设置用户变量的值](https://www.coze.cn/open/docs/developer_guides/update_variable)[获取用户变量的值](https://www.coze.cn/open/docs/developer_guides/read_variable)
+渠道
+[更新审核结果](https://www.coze.cn/open/docs/developer_guides/update_review_result)[添加发布平台](https://www.coze.cn/open/docs/developer_guides/install_channel)[绑定设备](https://www.coze.cn/open/docs/developer_guides/bind_connector_config)
+终端用户配额管控
+[创建终端用户权益额度](https://www.coze.cn/open/docs/developer_guides/create_device_quotas)[查询终端用户的权益配额](https://www.coze.cn/open/docs/developer_guides/get_device_quotas)[更新终端用户的权益额度](https://www.coze.cn/open/docs/developer_guides/update_device_quotas)
+账单与权益
+[导出终端用户账单](https://www.coze.cn/open/docs/developer_guides/create_bill_task)[查询账单文件](https://www.coze.cn/open/docs/developer_guides/billing_file)[查询套餐权益](https://www.coze.cn/open/docs/developer_guides/get_benefit)[账单推送回调事件](https://www.coze.cn/open/docs/developer_guides/billing_callback_message)
+回调
+[创建回调应用](https://www.coze.cn/open/docs/developer_guides/create_callback_app)[修改回调应用](https://www.coze.cn/open/docs/developer_guides/update_callback_app)[查询回调应用列表](https://www.coze.cn/open/docs/developer_guides/list_callback_app)[删除回调应用](https://www.coze.cn/open/docs/developer_guides/delete_callback_app)[订阅回调事件](https://www.coze.cn/open/docs/developer_guides/subscribe_callback_message)[查询已订阅的事件](https://www.coze.cn/open/docs/developer_guides/list_subscribed_callback_message)[取消订阅事件](https://www.coze.cn/open/docs/developer_guides/unsubscribe_callback_message)
+历史版本接口
+[【Deprecated】查看已发布智能体列表](https://www.coze.cn/open/docs/developer_guides/published_bots_list)[【Deprecated】获取已发布智能体的配置](https://www.coze.cn/open/docs/developer_guides/get_metadata)
+[错误码](https://www.coze.cn/open/docs/developer_guides/coze_error_codes)[API 常见问题](https://www.coze.cn/open/docs/developer_guides/api_faq)[模型能力差异](https://www.coze.cn/open/docs/developer_guides/model_api_param_support)
+最佳实践
+[通过对话接口获取智能体回复](https://www.coze.cn/open/docs/developer_guides/get_chat_response)[错误码 4100/4101 问题排查](https://www.coze.cn/open/docs/developer_guides/troubleshooting_4100_4101)[如何实现会话隔离](https://www.coze.cn/open/docs/developer_guides/session_isolation)[升级企业/团队版后更新 API 授权](https://www.coze.cn/open/docs/developer_guides/update_authorization)
+SDK 参考
+Chat SDK
+[Chat SDK 概述](https://www.coze.cn/open/docs/developer_guides/web_sdk_overview)[安装并使用 Chat SDK](https://www.coze.cn/open/docs/developer_guides/install_web_sdk)[Chat SDK 发布历史](https://www.coze.cn/open/docs/developer_guides/web_sdk_changelog)[（历史版本）Chat SDK](https://www.coze.cn/open/docs/developer_guides/web_sdk)[Chat SDK 常见问题](https://www.coze.cn/open/docs/developer_guides/chat_sdk_faq)
+Python SDK
+[Python SDK 概述](https://www.coze.cn/open/docs/developer_guides/python_overview)[安装 Python SDK](https://www.coze.cn/open/docs/developer_guides/python_installation)[配置访问密钥](https://www.coze.cn/open/docs/developer_guides/python_access_token)[快速开始](https://www.coze.cn/open/docs/developer_guides/python_getting_started)
+Node.js SDK
+[Node.js SDK 概述](https://www.coze.cn/open/docs/developer_guides/nodejs_overview)[安装 Node.js SDK](https://www.coze.cn/open/docs/developer_guides/nodejs_install)[配置访问密钥](https://www.coze.cn/open/docs/developer_guides/nodejs_access_token)[快速开始](https://www.coze.cn/open/docs/developer_guides/nodejs_getting_started)
+Java SDK
+[Java SDK 概述](https://www.coze.cn/open/docs/developer_guides/java_overview)[安装 Java SDK](https://www.coze.cn/open/docs/developer_guides/java_installation)[配置访问密钥](https://www.coze.cn/open/docs/developer_guides/java_access_token)[快速开始](https://www.coze.cn/open/docs/developer_guides/java_getting_started)
+Go SDK
+[Go SDK 概述](https://www.coze.cn/open/docs/developer_guides/go_overview)[安装 Go SDK](https://www.coze.cn/open/docs/developer_guides/go_installation)[配置访问密钥](https://www.coze.cn/open/docs/developer_guides/go_access_token)[快速开始](https://www.coze.cn/open/docs/developer_guides/go_getting_started)
+Web SDK
+[安装并使用 Web SDK](https://www.coze.cn/open/docs/developer_guides/ui_builder_web_sdk)
+Card SDK
+[安装并使用 Card SDK](https://www.coze.cn/open/docs/developer_guides/card_sdk)
+[实践教程](https://www.coze.cn/open/docs/tutorial)
+[扣子空间](https://www.coze.cn/open/docs/cozespace)
+[扣子罗盘](https://www.coze.cn/open/docs/cozeloop)
+[客户案例](https://www.coze.cn/open/docs/customers)
+[定价与购买](https://www.coze.cn/open/docs/coze_pro)
+目录
+大纲
+查看音色列表
+查看可用的音色列表，包括系统预置音色和自定义音色。​
+接口说明​
+调用此 API 可查看当前扣子用户可使用的音色列表，包括：​
+  * 系统预置音色：扣子平台提供的默认音色。​
+
+
+  * 自定义音色：当前扣子用户通过复刻音色 API 复刻的音色、当前账号加入的所有工作空间中其他扣子用户复刻的音色。​
+
+
+基础信息​
+​
+请求方式​| GET  
+---|---  
+请求地址​| ​Plain Text复制https://api.coze.cn/v1/audio/voices​  
+权限​| listVoice​确保调用该接口使用的个人令牌开通了 listVoice 权限，详细信息参考[鉴权方式](https://www.coze.cn/docs/developer_guides/authentication)。  
+接口说明​| 查看可用的音色列表，包括系统预置音色和自定义音色。​  
+​
+请求参数​
+Header​
+​
+参数​| 取值​| 说明​  
+---|---|---  
+Authorization​| Bearer $Access_Token​| 用于验证客户端身份的访问令牌。你可以在扣子平台中生成访问令牌，详细信息，参考[准备工作](https://www.coze.cn/docs/developer_guides/preparation)。  
+Content-Type​| application/json​| 解释请求正文的方式。  
+​
+Query​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+filter_system_voice​| Boolean​| 可选​| false| 查看音色列表时是否过滤掉系统音色。​
+  * true：过滤系统音色​
+
+
+  * false：（默认）不过滤系统音色​
+
+  
+model_type​| String​| 可选​| big​| 音色模型的类型，如果不填，默认都返回。可选值包括：​
+  * big：大模型​
+
+
+  * small：小模型​
+
+  
+voice_state​| String​| 可选​| cloned| 音色克隆状态，用于筛选特定状态的音色。可选值包括： ​
+  * init：待克隆。 ​
+
+
+  * cloned：（默认值）已克隆。 ​
+
+
+  * all：全部。​
+
+  
+page_num​| Integer​| 可选​| 1| 查询结果分页展示时，此参数用于设置查看的页码。最小值为 1，默认为 1。​  
+page_size​| Integer​| 可选​| 100| 查询结果分页展示时，此参数用于设置每页返回的数据量。取值范围为 1~100，默认为 100。​  
+​
+返回参数​
+​
+参数​| 类型​| 示例​| 说明​  
+---|---|---|---  
+code​| Long​| 0​| 状态码。​0代表调用成功。  
+data​| Object of ListVoiceData​| 参见响应参数​| 音色的详细信息。​  
+msg​| String​| ""​| 状态信息。API 调用失败时可通过此字段查看详细错误信息。​状态码为 0 时，msg 默认为空。​  
+detail​| Object of ResponseDetail​| { "logid": "2024102916355736DC98FBC4D32FD7E59C" }​| 本次请求的详细信息。​  
+​
+ListVoiceData​
+​
+参数​| 类型​| 示例​| 说明​  
+---|---|---|---  
+has_more​| Boolean​| false​| 标识是否还有未返回的音色数据。​
+  * true ：当前返回的音色列表未包含所有符合条件的音色。​
+
+
+  * false：表示已返回所有符合条件的音色数据。​
+
+  
+voice_list​| Array of OpenAPIVoiceData​| 参见响应参数​| 音色列表详情。​  
+​
+OpenAPIVoiceData​
+​
+参数​| 类型​| 示例​| 说明​  
+---|---|---|---  
+name​| String​| 开朗大男孩​| 音色的名称。​  
+state​| String​| cloned​| 音色克隆状态。枚举值： ​
+  * init：待克隆。 ​
+
+
+  * cloned：已克隆。 ​
+
+  
+voice_id​| String​| 734829333445931****​| 音色的 ID。​  
+model_type​| String​| big​| 音色模型的类型，枚举值：​
+  * big：大模型​
+
+
+  * small：小模型​
+
+  
+create_time​| Integer​| 1729686510​| 音色的创建时间，格式为 11 位的 Unixtime 时间戳。​  
+update_time​| Integer​| 1729686510​| 音色的更新时间，格式为 11 位的 Unixtime 时间戳。​  
+preview_text​| String​| 你好呀​| 此音色预览音频对应的文案。​  
+language_code​| String​| zh​| 此音色的语种代号。​  
+language_name​| String​| 中文​| 此音色的语种名称。​  
+preview_audio​| String​| https://lf3-appstore-sign.oceancloudapi.com/ocean-cloud-tos/VolcanoUserVoice/xxxxxx.mp3?lk3s=da27ec82&x-expires=1730277357&x-signature=xu2O6Gp5RvTyJOawqjAfsJZvifc%3D​| 此音色的预览音频。通常是一个公开可访问的网络地址。​  
+is_system_voice​| Boolean​| false​| 标识当前音色是否为系统预置音色。​
+  * true：系统预置音色。​
+
+
+  * false：用户自定义音色。​
+
+  
+support_emotions​| Array of EmotionInfo​| [{"emotion":"happy","display_name":"开心","emotion_scale_interval":{"max":5,"min":1,"default":4}},{"emotion":"sad","display_name":"悲伤","emotion_scale_interval":{"max":5,"min":1,"default":3}}]​| 音色支持的情感类型列表，仅当音色为多情感音色时返回。​  
+available_training_times​| Integer​| 6​| 当前音色还可训练的次数。包括首次复刻音色在内，每个自定义音色最多被训练 10 次。​  
+​
+EmotionInfo​
+​
+参数​| 类型​| 示例​| 说明​  
+---|---|---|---  
+emotion​| String​| happy​| 音色支持的情感类型标识符，仅当音色为多情感音色时返回。枚举值如下：​
+  * happy：开心。​
+
+
+  * sad：悲伤。​
+
+
+  * angry：愤怒。​
+
+
+  * surprised：惊讶。​
+
+
+  * fear：恐惧。​
+
+
+  * hate：厌恶。​
+
+
+  * excited：兴奋。​
+
+
+  * coldness：冷漠。​
+
+
+  * neutral：中性。​
+
+  
+display_name​| String​| 开心​| 音色支持的情感类型的中文显示名称，用于直观展示情感类型。​  
+emotion_scale_interval​| Object of Interval​| {"max":5,"min":1,"default":4}​| 情感强度的取值范围，用于量化情感的强度。​  
+​
+Interval​
+​
+参数​| 类型​| 示例​| 说明​  
+---|---|---|---  
+max​| Double​| 5​| 情感强度的最大值。​  
+min​| Double​| 1​| 情感强度的最小值。​  
+default​| Double​| 4​| 情感强度的默认值。​  
+​
+ResponseDetail​
+​
+参数​| 类型​| 示例​| 说明​  
+---|---|---|---  
+logid​| String​| 20241210152726467C48D89D6DB2****​| 本次请求的日志 ID。如果遇到异常报错场景，且反复重试仍然报错，可以根据此 logid 及错误码联系扣子团队获取帮助。详细说明可参考[获取帮助和技术支持](https://www.coze.cn/docs/guides/help_and_support)。​  
+​
+示例​
+请求示例​
+​
+JSON
+复制
+curl --location --request GET 'https://api.coze.cn/v1/audio/voices?filter_system_voice=false&model_type=big&voice_state=&page_num=1&page_size=100' \​
+\--header 'Authorization: Bearer Bearer pat_OYDacMzM3WyOWV3Dtj2bHRMymzxP****' \​
+\--header 'Content-Type: application/json'​
+​
+返回示例​
+​
+JSON
+复制
+{​
+"detail": {​
+"logid": "2024102916355736DC98FBC4D32F***"​
+},​
+"data": {​
+"voice_list": [​
+{​
+"preview_audio": "https://lf3-appstore-sign.oceancloudapi.com/ocean-cloud-tos/VolcanoUserVoice/xxxxxx.mp3?lk3s=da27ec82&x-expires=1730277357&x-signature=xu2O6Gp5RvTyJOawqjAfsJZvifc%3D",​
+"language_name": "中文",​
+"is_system_voice": false,​
+"preview_text": "你好，欢迎来到AI世界，我是你的专属AI克隆声音，希望未来可以一起好好相处。",​
+"create_time": 1729686510,​
+"update_time": 1729686510,​
+"name": "jay", // 音色名称​
+"language_code": "zh",​
+"voice_id": "12344",​
+"available_training_times": 6, // 当前音色还可以训练的次数​
+"model_type": "big"​
+}​
+],​
+"has_more": false​
+},​
+"code": 0,​
+"msg": ""​
+}
+​
+错误码​
+如果成功调用扣子的 API，返回信息中 code 字段为 0。如果状态码为其他值，则表示接口调用失败。此时 msg 字段中包含详细错误信息，你可以参考[错误码](https://www.coze.cn/docs/developer_guides/coze_error_codes)文档查看对应的解决方法。
+上一篇
+查看文件详情
+下一篇
+语音合成
+接口说明
+基础信息
+请求参数
+Header
+Query
+返回参数
+ListVoiceData
+OpenAPIVoiceData
+EmotionInfo
+Interval
+ResponseDetail
+示例
+请求示例
+返回示例
+错误码
+文档是否帮助到您？
+有帮助无帮助
+关闭
+接口说明
+基础信息
+请求参数
+Header
+Query
+返回参数
+ListVoiceData
+OpenAPIVoiceData
+EmotionInfo
+Interval
+ResponseDetail
+示例
+请求示例
+返回示例
+错误码
+![](https://bat.bing.com/action/0?ti=97151251&Ver=2&mid=dd2d188b-06af-4054-a567-856b2afe54bd&bo=1&sid=a6c3ee30d4c211f0966da1ab2d8de18c&vid=a6c3dd00d4c211f0a7ba75271dd5e1e5&vids=0&msclkid=N&uach=pv%3D19.0.0&pi=0&lg=zh-CN&sw=1280&sh=720&sc=24&nwd=1&tl=%E6%96%87%E6%A1%A3%20-%20%E6%89%A3%E5%AD%90&kw=%E6%89%A3%E5%AD%90,%20Coze,%20AI%20Agent,%20%E6%99%BA%E8%83%BD%E5%8A%9E%E5%85%AC,%20%E5%8A%9E%E5%85%AC%E6%8F%90%E6%95%88,%20AI%E5%86%99%E4%BD%9C,%20PPT%E7%94%9F%E6%88%90,%20%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91,%20%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7&p=https%3A%2F%2Fwww.coze.cn%2Fopen%2Fdocs%2Fdeveloper_guides%2Flist_voices&r=&lt=1013&mtp=10&evt=pageLoad&sv=2&cdb=AQAQ&rn=169332)
+![](https://bat.bing.com/action/0?ti=97179855&Ver=2&mid=6679ef78-e88e-4ab4-a77a-623e1f38bb52&bo=1&sid=a6c3ee30d4c211f0966da1ab2d8de18c&vid=a6c3dd00d4c211f0a7ba75271dd5e1e5&vids=0&msclkid=N&uach=pv%3D19.0.0&pi=0&lg=zh-CN&sw=1280&sh=720&sc=24&nwd=1&tl=%E6%96%87%E6%A1%A3%20-%20%E6%89%A3%E5%AD%90&kw=%E6%89%A3%E5%AD%90,%20Coze,%20AI%20Agent,%20%E6%99%BA%E8%83%BD%E5%8A%9E%E5%85%AC,%20%E5%8A%9E%E5%85%AC%E6%8F%90%E6%95%88,%20AI%E5%86%99%E4%BD%9C,%20PPT%E7%94%9F%E6%88%90,%20%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91,%20%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7&p=https%3A%2F%2Fwww.coze.cn%2Fopen%2Fdocs%2Fdeveloper_guides%2Flist_voices&r=&lt=1013&mtp=10&evt=pageLoad&sv=2&cdb=AQAQ&rn=258265)
+rangeDom

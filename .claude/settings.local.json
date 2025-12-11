@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(findstr:*)",
+      "Bash(powershell -Command \"Select-String -Path ''C:\\josbs\\volcano-chat\\coze_docs\\html\\chat_v3.html'' -Pattern ''bot_id'' -Context 0,2 | Select-Object -First 10\")",
+      "Bash(powershell -Command \"Select-String -Path ''C:\\josbs\\volcano-chat\\coze_docs\\coze_developer_guides_raw.html'' -Pattern ''bot_id'' -Context 1,1 | Select-Object -First 20\")",
+      "Bash(powershell -Command:*)",
+      "Bash(dir:*)",
+      "Bash(curl:*)",
+      "Bash(powershell -File - <<'EOF'\n$body = @{\n    workflow_id = \"7543559880080457779\"\n    additional_messages = @(\n        @{\n            role = \"user\"\n            content = \"测试内容\"\n            content_type = \"text\"\n        }\n    )\n    parameters = @{\n        user_uuid = \"4\"\n    }\n    app_id = \"7544841990044041226\"\n} | ConvertTo-Json -Depth 10 -Compress\n\nInvoke-RestMethod -Uri 'https://api.coze.cn/v1/workflows/chat' -Method Post -Headers @{Authorization='Bearer cztei_qzv1yCwfvahAfEpqbljvJWuKaChVTUfH97j2wbvsqA73LRUssK6qLCstplcNYg4sk';'Content-Type'='application/json'} -Body $body\nEOF)",
+      "Bash(tree:*)",
+      "Bash(npx nuxi@latest init chat-widget)",
+      "Bash(npx nuxi@latest init chat-widget --template minimal --force)",
+      "Bash(echo:*)",
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "Bash(ls:*)",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "Bash(powershell:*)",
+      "Bash(del:*)"
+    ]
+  }
+}

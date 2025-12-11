@@ -1,0 +1,337 @@
+https://www.coze.cn/open/docs/developer_guides/get_chat_response
+
+扣子
+创建
+主页
+项目开发
+资源库
+任务中心
+效果评测
+空间配置
+模板商店
+插件商店
+作品社区
+API 管理
+文档中心
+目录
+取消固定
+使用指南
+开发指南
+API 和 SDK
+API 参考
+API 介绍
+更新日志
+准备工作
+API Playground
+鉴权
+鉴权方式概述
+添加个人访问令牌
+添加服务访问令牌
+OAuth 应用管理
+通过示例文件体验 OAuth 授权流程
+OAuth 授权码授权
+OAuth PKCE
+OAuth 设备授权
+OAuth JWT 授权（开发者）
+OAuth JWT 授权（渠道场景）
+OAuth JWT 授权（跨账号授权场景）
+OAuth JWT 授权（企业特权应用）
+OAuth 授权（多人协作场景）
+鉴权常见问题
+智能体和应用
+创建智能体
+更新智能体
+发布智能体
+查看智能体列表
+查看智能体配置
+开启或关闭智能体多人协作
+添加智能体的协作者
+添加应用的协作者
+删除智能体的协作者
+删除应用的协作者
+查看智能体版本列表
+复制资源
+查询资源复制的结果
+下架智能体
+Bot object
+查看应用列表
+智能体发布回调事件
+智能体删除回调事件
+智能体下架回调事件
+工作空间
+创建工作空间
+查看空间列表
+修改工作空间基本信息
+查看空间成员列表
+批量邀请用户加入空间
+批量移除空间中的用户
+文件夹
+查询文件夹列表
+查询文件夹详情
+企业/组织
+成员管理（火山 API）
+添加团队/企业成员
+修改企业员工的角色
+移除团队/企业成员
+创建组织
+修改组织基本信息
+查询组织列表
+添加组织成员
+查询组织成员列表
+修改组织成员角色
+移除组织成员
+会话与消息
+创建会话
+查看会话信息
+查看会话列表
+更新会话名称
+删除会话
+清除上下文
+创建消息
+查看消息列表
+查看消息详情
+修改消息
+删除消息
+消息 type 说明
+提交消息评价
+删除消息评价
+对话
+发起对话
+查看对话详情
+查看对话消息详情
+提交工具执行结果
+取消进行中的对话
+工作流
+执行工作流
+执行工作流（流式响应）
+恢复运行工作流（流式响应）
+恢复运行工作流
+查询工作流异步运行结果
+执行对话流
+查询输出节点的执行结果
+查询工作流列表
+查询工作流基本信息
+查询工作流的版本列表
+开启或关闭工作流多人协作
+添加工作流协作者
+删除工作流协作者
+文件
+上传文件
+查看文件详情
+智能音视频
+ASR、TTS 与音色
+查看音色列表
+语音合成
+语音识别
+复刻音色
+RTC 语音
+创建房间
+Realtime 上行事件
+Realtime 下行事件
+Realtime 事件错误码
+WebSocket 语音
+双向流式语音识别
+双向流式语音识别事件
+双向流式语音合成
+双向流式语音合成事件
+双向流式语音对话
+双向流式对话上行事件
+双向流式对话下行事件
+声纹识别
+创建声纹组
+查询声纹组列表
+更新声纹组信息
+删除声纹组
+创建声纹
+更新声纹
+查询声纹列表
+删除声纹
+声纹特征比对
+知识库
+创建知识库
+查看知识库列表
+修改知识库信息
+删除知识库
+创建知识库文件
+修改知识库文件
+查看知识库文件列表
+查看知识库文件上传进度
+更新知识库图片描述
+查看知识库图片列表
+删除知识库文件
+插件
+查询付费插件列表
+查询插件分类
+查询插件详情
+批量查询插件信息
+调用插件工具
+申请插件扩容回调事件
+插件扩容到期回调事件
+变量
+设置用户变量的值
+获取用户变量的值
+渠道
+更新审核结果
+添加发布平台
+绑定设备
+终端用户配额管控
+创建终端用户权益额度
+查询终端用户的权益配额
+更新终端用户的权益额度
+账单与权益
+导出终端用户账单
+查询账单文件
+查询套餐权益
+账单推送回调事件
+回调
+创建回调应用
+修改回调应用
+查询回调应用列表
+删除回调应用
+订阅回调事件
+查询已订阅的事件
+取消订阅事件
+历史版本接口
+【Deprecated】查看已发布智能体列表
+【Deprecated】获取已发布智能体的配置
+错误码
+API 常见问题
+模型能力差异
+最佳实践
+通过对话接口获取智能体回复
+错误码 4100/4101 问题排查
+如何实现会话隔离
+升级企业/团队版后更新 API 授权
+SDK 参考
+Chat SDK
+Chat SDK 概述
+安装并使用 Chat SDK
+Chat SDK 发布历史
+（历史版本）Chat SDK
+Chat SDK 常见问题
+Python SDK
+Python SDK 概述
+安装 Python SDK
+配置访问密钥
+快速开始
+Node.js SDK
+Node.js SDK 概述
+安装 Node.js SDK
+配置访问密钥
+快速开始
+Java SDK
+Java SDK 概述
+安装 Java SDK
+配置访问密钥
+快速开始
+Go SDK
+Go SDK 概述
+安装 Go SDK
+配置访问密钥
+快速开始
+Web SDK
+安装并使用 Web SDK
+Card SDK
+安装并使用 Card SDK
+实践教程
+扣子空间
+扣子罗盘
+客户案例
+定价与购买
+目录
+大纲
+通过对话接口获取智能体回复
+​
+获取智能体回复​
+调用对话接口后，服务端会处理请求并生成智能体回复。你可以通过以下方式获取智能体的回复详情。​
+​
+获取方式​
+	
+说明​
+
+
+通过流式响应实时显示智能体回复​
+	
+如果客户端中需要打字机效果实时增量显示智能体回复，可以在调用发起对话接口时，设置流式响应（stream=true），并在客户端对话框中实时打印接口响应中的模型回复部分。​
+该场景下，客户端需要自行拼接响应内容。​
+
+
+仅解析流式响应的智能体回复部分​
+	
+如果不需要增量流式显示智能体回复，只需要快速获取最终结果，可以在调用发起对话接口时，设置流式响应（stream=true），并在 Response 中，在事件 event:conversation.message.completed中，取 type=answer 的事件，例如以下事件中，content 部分为智能体回复。​
+​
+event:conversation.message.completed​
+data:{"id":"738215949412347****","conversation_id":"738147352534297****","bot_id":"737946218936519****","role":"assistant","type":"answer","content":"2024 年 10 月 1 日是星期三。","content_type":"text","chat_id":"738215948713169****"}​
+​
+对话结束后，事件 event:conversation.message.completed 中可能有多种消息类型，你可以按需解析。常见的消息类型可参考​消息示例。​
+
+
+通过非流式响应主动查询智能体回复​
+	
+你也可以参考以下流程主动查询智能体回复。​
+1.
+调用发起会话接口，并设置 stream = false，auto_save_history=true，表示使用非流式响应，并记录历史消息。​
+你需要记录会话的 Conversation ID 和 Chat ID，用于后续查看详细信息。​
+2.
+定期轮询​查看对话详情接口，建议每次间隔 1 秒以上，直到会话状态流转为终态，即 status 为 completed 或 required_action。​
+3.
+调用​查看对话消息详情接口，查询模型生成的最终结果。​
+​
+​
+​
+​
+​
+
+
+​
+消息示例​
+文本格式智能体回复​
+data 字段中，type=answer，且 content_type=text 的消息为文本格式的智能体回复。示例如下：​
+​
+event:conversation.message.completed​
+data:{"id":"739002977785765****","conversation_id":"739002976985482****","bot_id":"732868101392695****","role":"assistant","type":"answer","content":"xxxx","content_type":"text","chat_id":"7390029769854844****"}​
+​
+卡片消息​
+data 字段中，type=answer，且 content_type=card 的消息为卡片格式的智能体回复。示例如下：​
+​
+event:conversation.message.completed​
+data:{"id":"73900297849082****","conversation_id":"7390029769854828****","bot_id":"732868101392695****","role":"assistant","type":"answer","content":"{\"card_type\":3,\"template_url\":\"xxx ....\"response_type\":\"card\"}","content_type":"card","chat_id":"739002976985484****"}​
+​
+知识库召回​
+data 字段中，type=verbose，且 content.msg_type = knowledge_recall 的消息为知识库召回的消息。示例如下：​
+​
+event:conversation.message.completed​
+data:{"id":"739002976985487****","conversation_id":"7390029769854828582","bot_id":"732868101392695****","role":"assistant","type":"verbose","content":"{\"msg_type\":\"knowledge_recall\",\"data\":\"xxxx\"}","content_type":"text","chat_id":"739002976985484****"}​
+​
+函数调用（Function call）​
+data 字段中，type=function_call 的消息为函数调用的结果。示例如下：​
+​
+event:conversation.message.completed​
+data:{"id":"739002977785767****","conversation_id":"739002976985482****","bot_id":"732868101392695****","role":"assistant","type":"function_call","content":"{\"name\":\"toutiaosousuo-search\",\"arguments\":{\"input_query\":\"B 站的热搜\"},\"plugin_id\":72811926238875****3,\"plugin_name\":\"toutiaosousuo\",\"api_id\":7288907006982012986,\"api_name\":\"search\",\"plugin_type\":1,\"thought\":\"需求为搜索 B 站的热搜并搜索这些热搜最新的动态新闻。第一步需要调用toutiaosousuo-search工具搜索 B 站的热搜\"}","content_type":"text","chat_id":"73900297698548****"}​
+​
+工具调用（tool_response）​
+data 字段中，type=tool_response 的消息为工具调用的结果。示例如下：​
+​
+event:conversation.message.completed​
+data:{"id":"739002978490818****","conversation_id":"739002976985482****","bot_id":"732868101392695****","role":"assistant","type":"tool_response","content":"xxx","content_type":"card","chat_id":"739002976985484****"}​
+​
+结束生成标识​
+data 字段中，type=verbose，且 content.msg_type = generate_answer_finish 的消息为模型生成结束的标识。示例如下：​
+​
+event:conversation.message.completed​
+data:{"id":"739002981382787****","conversation_id":"739002976985482****","bot_id":"732868101392695****","role":"assistant","type":"verbose","content":"{\"msg_type\":\"generate_answer_finish\",\"data\":\"{\\\"finish_reason\\\":0}\",\"from_module\":null,\"from_unit\":null}","content_type":"text","chat_id":"739002976985484****"}​
+​
+推荐​
+data 字段中，type=follow_up 的消息为智能体的用户问题建议。示例如下：​
+​
+event:conversation.message.completed​
+data:{"id":"739002981382791****","conversation_id":"739002976985482****","bot_id":"732868101392695****","role":"assistant","type":"follow_up","content":"总结一下B站崩了的具体情况","content_type":"text","chat_id":"739002976985484****"}​
+​
+​
+上一篇
+模型能力差异
+下一篇
+错误码 4100/4101 问题排查
+获取智能体回复
+消息示例
+rangeDom

@@ -1,0 +1,405 @@
+https://www.coze.cn/open/docs/developer_guides/update_bot
+
+# 扣子
+创建
+[主页](https://www.coze.cn/sign)[项目开发](https://www.coze.cn/sign)[资源库](https://www.coze.cn/sign)[任务中心](https://www.coze.cn/sign)[效果评测](https://www.coze.cn/sign)[空间配置](https://www.coze.cn/sign)
+[模板商店](https://www.coze.cn/sign)[插件商店](https://www.coze.cn/sign)[作品社区](https://www.coze.cn/sign)[API 管理](https://www.coze.cn/open/playground)[文档中心](https://www.coze.cn/open/docs/guides)
+目录取消固定
+[使用指南](https://www.coze.cn/open/docs/guides)
+[开发指南](https://www.coze.cn/open/docs/dev_how_to_guides)
+[API 和 SDK](https://www.coze.cn/open/docs/developer_guides)
+[实践教程](https://www.coze.cn/open/docs/tutorial)
+[扣子空间](https://www.coze.cn/open/docs/cozespace)
+[扣子罗盘](https://www.coze.cn/open/docs/cozeloop)
+[客户案例](https://www.coze.cn/open/docs/customers)
+[定价与购买](https://www.coze.cn/open/docs/coze_pro)
+目录
+大纲
+更新智能体
+更新智能体的配置。​
+通过此 API 可更新通过扣子平台或 API 方式创建的所有智能体。通过 API 方式修改智能体除了智能体名称和描述、头像、人设与回复逻辑及开场白之外，还支持为智能体绑定知识库和插件。​
+接口限制​
+不支持通过 API 绑定火山知识库，只能绑定扣子知识库。​
+基础信息​
+​
+请求方式​| POST  
+---|---  
+请求地址​| ​Plain Text复制https://api.coze.cn/v1/bot/update​  
+权限​| edit​确保调用该接口使用的访问令牌开通了 edit 权限，详细信息参考[鉴权方式](https://www.coze.cn/docs/developer_guides/authentication)。​  
+接口说明​| 调用接口修改智能体的配置。​  
+​
+请求参数​
+Header​
+​
+参数​| 取值​| 说明​  
+---|---|---  
+Authorization​| Bearer $AccessToken​| 用于验证客户端身份的访问令牌。你可以在扣子平台中生成访问令牌，详细信息，参考[准备工作](https://www.coze.cn/docs/developer_guides/preparation)。​  
+Content-Type​| application/json​| 解释请求正文的方式。​  
+​
+Body​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+bot_id​| String​| 必选​| 73428668*****​| 待修改配置的智能体 ID。​进入智能体的 开发页面，开发页面 URL 中 bot 参数后的数字就是智能体 ID。例如https://www.coze.cn/space/341****/bot/73428668*****，bot ID 为73428668*****。​  
+name​| String​| 可选​| 每日学一菜​| 智能体的名称。长度为 1~ 20 个字符。​  
+description​| String​| 可选​| 每天教你一道菜的做法，暑假之后你将成为中餐大厨～​| 智能体的描述信息。长度为 0~ 500 个字符。默认为空。​  
+icon_file_id​| String​| 可选​| 73694959811****​| 作为智能体头像的文件 ID。​
+  * 未指定文件 ID 时，扣子平台默认为智能体指定一个头像。​
+
+
+  * 如需使用自定义头像，应先通过[上传文件](https://www.coze.cn/docs/developer_guides/upload_files)接口上传本地文件，从接口响应中获取文件 ID。文件 ID 作为智能体头像时，有效期为永久有效。​
+
+  
+prompt_info​| Object of PromptInfo​| 可选​| { "prompt": "你是一位经验丰富的中餐大厨，能够熟练传授各类中餐的烹饪技巧，每日为大学生厨师小白教学一道经典中餐的制作方法。" }​| 智能体的人设与回复逻辑。​  
+onboarding_info​| Object of OnboardingInfo​| 可选​| { "prologue": "欢迎你，学徒，今天想学一道什么样的菜？", "suggested_questions": [ "川菜，我想吃辣的", "广东菜，来点鲜的", "随机教我一道菜" ] }​| 智能体的开场白相关设置。​  
+knowledge​| Object of Knowledge​| 可选​| { "dataset_ids": [ "738509371792341****" ], "auto_call": true, "search_strategy": 1 } }​| 智能体的知识库配置。​说明
+  * 最多绑定 150 个知识库。 ​
+
+
+  * 不支持通过 API 绑定火山知识库，只能绑定扣子知识库。​
+
+​  
+plugin_id_list​| Object of PluginIdList​| 可选​| {"id_list":[{"plugin_id":"731198934927553****","api_id":"735057536617362****"}]}​| 智能体的插件配置列表，用于绑定插件及其工具。​  
+workflow_id_list​| Object of WorkflowIdList​| 可选​| {"ids": [{"id": "746049108611037****"}]}​| 智能体绑定的工作流 ID 列表，用于配置智能体的工作流。​  
+model_info_config​| Object of ModelInfoConfig​| 可选​| { "model_id": "1706077826" }​| 智能体的模型配置，用于指定智能体使用的模型及其相关参数。​模型支持的配置参数及取值范围、默认值各不相同，可在扣子平台中查看具体模型的参数及取值范围。​  
+suggest_reply_info​| Object of SuggestReplyInfo​| 可选​| {"reply_mode":"enable"}​| 配置智能体回复后的用户问题建议功能。​  
+​
+PromptInfo​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+prompt​| String​| 可选​| 你是一位经验丰富的中餐大厨，能够熟练传授各类中餐的烹饪技巧，每日为大学生厨师小白教学一道经典中餐的制作方法。​| 智能体的人设与回复逻辑。长度为 0~ 20,000 个字符。默认为空。​开启前缀缓存后，不支持通过 prompt 参数设置提示词，需要通过 prefix_prompt_info 参数设置提示词。​  
+prompt_mode​| String​| 可选​| standard​| 提示词模式，用于指定智能体的人设与回复逻辑的配置方式。枚举值：​
+  * standard（默认值）：标准模式。未开启前缀缓存时使用该模式。​
+
+
+  * prefix：前缀缓存模式，提示词会分为缓存提示词和非缓存提示词两部分。开启前缀缓存后需要设置为该模式。​
+
+  
+prefix_prompt_info​| Object of PrefixPromptInfo​| 可选​| \​| 通过 cache_type 或 parameters.caching.type开启前缀缓存后，你需要通过该参数设置缓存提示词（prefix_prompt）和 非缓存提示词（dynamic_prompt）。不支持通过 prompt 参数设置提示词。​  
+​
+PrefixPromptInfo​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+prefix_prompt​| String​| 可选​| \​| 缓存提示词，大量重复出现的固定规则、模板框架或背景信息，用于指引大模型输出格式与风格。扣子会将其缓存并复用，大模型无需重新解析这部分固定信息。​  
+dynamic_prompt​| String​| 可选​| \​| 非缓存提示词，动态变化的个性化信息，仅针对当前请求生效。​  
+​
+OnboardingInfo​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+prologue​| String​| 可选​| 欢迎你，学徒，今天想学一道什么样的菜？​| 智能体的开场白。长度为 0~ 300 个字符。默认无开场白。​开场白中如果设置了用户名称变量{{user_name}}，API 场景中需要业务方自行处理，例如展示开场白时将此变量替换为业务侧的用户名称。​  
+suggested_questions​| Array of String​| 可选​| ["川菜，我想吃辣的","广东菜，来点鲜的","随机教我一道菜"]​| 智能体的开场白预置问题。每个问题长度为 0~ 50 个字符，问题数量无限制。默认无开场白预置问题。​  
+​
+Knowledge​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+dataset_ids​| Array of String​| 可选​| ["738509371792341****"]​| 智能体绑定的知识库 ID。​在扣子平台中打开指定知识库页面，页面 URL 中 knowledge 参数后的数字就是知识库 ID。例如 https://www.coze.cn/space/736142423532160****/knowledge/738509371792341****，知识库 ID 为 738509371792341****。​说明
+  * 最多绑定 150 个知识库。​
+
+
+  * 不支持通过 API 绑定火山知识库，只能绑定扣子知识库。​
+
+​  
+auto_call​| Boolean​| 可选​| true​| 是否自动调用知识库。取值包括：​
+  * true：（默认）自动调用。每一轮对话都会调用知识库，使用召回的内容辅助生成回复。​
+
+
+  * false：按需调用。根据实际需要来调用知识库，使用召回内容辅助生成回复。此时，需要在左侧的人设与回复逻辑区域明确写清楚在什么情况下调用哪个知识库进行回复。​
+
+  
+search_strategy​| Integer​| 可选​| 1​| 知识库搜索策略。取值包括：​
+  * 0：（默认）语义搜索。像人类一样去理解词与词，句与句之间的关系。​
+
+
+  * 1：混合搜索。结合全文检索和语义检索的优势，并对结果进行综合排序召回相关的内容片段。​
+
+
+  * 20：全文搜索。基于关键词进行全文检索。​
+
+  
+​
+PluginIdList​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+id_list​| Array of PluginIdInfo​| 可选​| { "id_list": [ { "plugin_id": "731198934927553****", "api_id": "735057536617362****" } ] }​| 智能体的插件列表配置。​  
+​
+PluginIdInfo​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+api_id​| String​| 必选​| 735057536617362****​| 智能体绑定的插件工具 ID。​在扣子平台中打开指定插件工具页面，页面 URL 中 tool 参数后的数字就是插件工具 ID。例如 https://www.coze.cn/space/731762895654132****/plugin/735057533610021****/tool/735057536617362****，插件工具 ID 为 735057536617362****。​  
+plugin_id​| String​| 必选​| 731198934927553****​| 智能体绑定的插件 ID。​在扣子平台中打开指定插件页面，页面 URL 中 plugin 参数后的数字就是插件 ID。例如​https://www.coze.cn/space/728826510807216****/plugin/731198934927553****，插件 ID 为 731198934927553****。​  
+​
+WorkflowIdList​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+ids​| Array of WorkflowIdInfo​| 可选​|  [ { "id": "746049108611037****" }]​| 智能体的工作流列表配置。​  
+​
+WorkflowIdInfo​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+id​| String​| 必选​| 746049108611037****​| 智能体绑定的工作流 ID。​进入工作流的编排页面，在页面 URL 中，workflow 参数后的数字就是工作流 ID。例如 https://www.coze.com/work_flow?space_id=42463***&workflow_id=73505836754923***，工作流 ID 为 73505836754923***。​  
+​
+ModelInfoConfig​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+model_id​| String​| 必选​| 1706077826​| 智能体绑定的模型 ID。​在工作空间的模型管理页面中单击指定模型，模型详情页面 URL 中 model 参数后的数字就是模型 ID。例如https://www.coze.cn/space/7288****/model/1716****，模型 ID 为 1716****。​  
+top_k​| Integer​| 可选​| 50​| 生成文本时，采样候选集的大小。该参数控制模型在生成每个词时考虑的候选词数量，值越小生成的文本越保守和确定，值越大生成的文本越多样和随机。​  
+top_p​| Double​| 可选​| 1​| Top P，即累计概率。该参数控制模型在生成文本时的采样策略，值越小生成的文本越保守和确定，值越大生成的文本越多样和随机。​说明部分模型不支持该参数，具体支持的模型请参见[模型能力差异](https://www.coze.cn/open/docs/developer_guides/model_api_param_support)。​​  
+max_tokens​| Integer​| 可选​| 4096​| 最大回复长度。​  
+temperature​| Double​| 可选​| 1​| 生成随机性。​说明部分模型不支持该参数，具体支持的模型请参见[模型能力差异](https://www.coze.cn/open/docs/developer_guides/model_api_param_support)。​​  
+sp_anti_leak​| Boolean​| 可选​| true​| 是否启用 SP 拼接防泄露指令，开启后，当用户尝试获取或复述系统内部的规则、提示词或其他敏感内容时，智能体将礼貌地拒绝用户的请求，确保机密信息不被泄露。​
+  * true：开启系统提示词防泄漏。​
+
+
+  * false：（默认值）关闭系统提示词防泄漏。​
+
+  
+context_round​| Integer​| 可选​| 30​| 携带上下文轮数。​  
+response_format​| String​| 可选​| text​| 输出格式。取值：​
+  * text：文本。​
+
+
+  * markdown：Markdown格式。​
+
+
+  * json：JSON 格式。​
+
+  
+sp_current_time​| Boolean​| 可选​| true​| 是否在 SP 中包含当前时间信息。​
+  * true：智能体在与用户对话时能实时获取并提供准确的时间信息。​
+
+
+  * false：（默认值）在系统提示词中不会拼接当前时间信息。​
+
+  
+presence_penalty​| Double​| 可选​| 0​| 重复主题惩罚。​  
+frequency_penalty​| Double​| 可选​| 0​| 重复语句惩罚。​  
+cache_type​| String​| 可选​| closed​| 为模型开启或关闭前缀缓存。开启前缀缓存后，扣子将自动缓存公共前缀内容，后续调用模型时无需重复发送，从而加快模型的响应速度并降低使用成本。具体用法请参见[前缀缓存](https://www.coze.cn/open/docs/guides/llm#8b3b9036)。枚举值：​
+  * closed（默认值）：关闭前缀缓存。​
+
+
+  * prefix：开启前缀缓存。​
+
+说明
+  * 套餐限制：仅扣子个人进阶版、团队版和企业版支持开启上下文前缀缓存。​
+
+
+  * 模型限制：仅部分模型支持该参数，具体支持的模型请参见[模型能力差异](https://www.coze.cn/open/docs/developer_guides/model_api_param_support)。​
+
+
+  * 其他限制：该参数仅适用于 Context API 协议，Responses API 协议的前缀缓存需要通过 parameters 参数进行配置。​
+
+​  
+api_mode​| String​| 可选​| chat_api​| 模型的 API 协议类型，用于指定智能体与模型交互时使用的 API 协议。枚举值：​
+  * chat_api（默认值）：智能体需要在请求时带上对话历史作为上下文。适用于日常闲聊、基础咨询、简单文本生成等轻量化需求。​
+
+
+  * responses_api：模型新推出的 API，不仅延续了 Chat API 的易用性，还原生支持高效的上下文管理和前缀缓存。适用于需要多步推理等复杂任务链处理的场景。​
+
+说明仅部分模型支持responses_api协议，具体支持的模型请参见[模型能力差异](https://www.coze.cn/open/docs/developer_guides/model_api_param_support)。​​  
+parameters​| JSON Map​| 可选​| 深度思考示例：​{"thinking_type": "disabled"}​上下文管理示例：​{"caching":{"type":"disabled"},"store":true,"caching_expire_time":259200}​| 你可以通过该参数配置模型深度思考和responses_api的上下文管理相关配置。​
+  * 深度思考：开发者可以设置开启或关闭深度思考，从而灵活控制模型在交互过程中的 Token 消耗。​
+
+
+  * 说明仅部分模型支持深度思考开关，具体支持的模型请参见[模型能力差异](https://www.coze.cn/open/docs/developer_guides/model_api_param_support)。​​
+
+
+  * 深度思考 thinking_type 的值可以设置为：​
+
+
+  * enabled：开启深度思考。智能体在与用户对话时会先输出一段思维链内容，通过逐步拆解问题、梳理逻辑，提升最终输出答案的准确性。但该模式会因额外的推理步骤消耗更多 Token。​
+
+
+  * 说明开启深度思考后：​
+    * 模型不支持 Function Call，即工具调用。​
+    * 智能体不能使用插件、触发器、变量、数据库、文件盒子、不能添加工作流和对话流。​
+    * 不支持使用插件和工作流相关的快捷指令。​
+​
+
+
+  * disabled：关闭深度思考。智能体将直接生成最终答案，不再经过额外的思维链推理过程，可有效降低 Token 消耗，提升响应速度。​
+
+
+  * auto：启用自动模式后，模型会根据对话内容的复杂度，自动判断是否启用深度思考。​
+
+
+  * 上下文管理：当 api_mode 为 responses_api时，支持配置前缀缓存、存储和存储时长。​
+
+
+  * 说明仅部分模型支持前缀缓存，具体支持的模型请参见[模型能力差异](https://www.coze.cn/open/docs/developer_guides/model_api_param_support)。​​
+
+
+  * 上下文管理的具体参数如下：​
+
+
+  * caching.type：你可以设置为 enabled 或disabled，开启或关闭前缀缓存。默认为 disabled。前缀缓存的具体用法请参考[前缀缓存](https://www.coze.cn/open/docs/guides/llm#8b3b9036)。​
+
+
+  * store：你可以设置为 true 或 false，开启或关闭存储功能。开启后将自动存储输入、输出字段的消息，不存储思维链中的消息。默认为 true 。若需使用前缀缓存功能，需开启存储功能。​
+
+
+  * caching_expire_time：设置上下文缓存和存储的有效时长，单位：秒。最大为 259200 秒（3天）。默认值：259200。​
+
+  
+​
+SuggestReplyInfo​
+​
+参数​| 类型​| 是否必选​| 示例​| 说明​  
+---|---|---|---|---  
+reply_mode​| String​| 可选​| enable​| 配置智能体回复后，是否提供用户问题建议。枚举值：​
+  * enable：在智能体回复后，提供最多 3 条用户问题建议。​
+
+
+  * disable：在每次智能体回复后，不会提供任何用户问题建议。​
+
+
+  * customized：开启用户问题建议，并根据用户自定义的 Prompt 提供用户问题建议。你需要在 customized_prompt 参数中设置关于用户问题建议的 Prompt。​
+
+  
+customized_prompt​| String​| 可选​| 问题应该与你最后一轮的回复紧密相关，可以引发进一步的讨论。​| 关于用户问题建议的 Prompt。当 reply_mode 设置为 customized时，需要设置提示词内容。智能体会根据该提示词生成用户问题建议。​  
+​
+返回参数​
+​
+参数​| 类型​| 示例​| 说明​  
+---|---|---|---  
+code​| Long​| 0​| 调用状态码。​
+  * 0 表示调用成功。​
+
+
+  * 其他值表示调用失败。你可以通过 msg 字段判断详细的错误原因。​
+
+  
+msg​| String​| ""​| 状态信息。API 调用失败时可通过此字段查看详细错误信息。​状态码为 0 时，msg 默认为空。​  
+detail​| Object of ResponseDetail​| { "logid": "20250106172024B5F607030EFFAD653960" }​| 响应详情信息。​  
+​
+ResponseDetail​
+​
+参数​| 类型​| 示例​| 说明​  
+---|---|---|---  
+logid​| String​| 20241210152726467C48D89D6DB2****​| 本次请求的日志 ID。如果遇到异常报错场景，且反复重试仍然报错，可以根据此 logid 及错误码联系扣子团队获取帮助。详细说明可参考[获取帮助和技术支持](https://www.coze.cn/docs/guides/help_and_support)。​  
+​
+示例​
+请求示例​
+​
+JSON
+复制
+curl --location --request POST 'https://api.coze.cn/v1/bot/update' \​
+\--header 'Authorization: Bearer pat_OYDacMzM3WyOWV3Dtj2bHRMymzxP****' \ ​
+\--header 'Content-Type: application/json' \​
+{​
+"bot_id": "73428668*****",​
+"name": "每日学一菜",​
+"description": "每天教你一道菜的做法，暑假之后你将成为中餐大厨～",​
+"icon_file_id": "73694959811****",​
+"prompt_info": {​
+"prompt": "你是一位经验丰富的中餐大厨，能够熟练传授各类中餐的烹饪技巧，每日为大学生厨师小白教学一道经典中餐的制作方法。"​
+},​
+"plugin_id_list": {​
+"id_list": [​
+{​
+"plugin_id": "731198934927553****",​
+"api_id": "735057536617362****"​
+}​
+]​
+},​
+"onboarding_info": {​
+"prologue": "欢迎你，学徒，今天想学一道什么样的菜？",​
+"suggested_questions": [​
+"川菜，我想吃辣的",​
+"广东菜，来点鲜的",​
+"随机教我一道菜"​
+]​
+},​
+"knowledge": {​
+"dataset_ids": [​
+"738509371792341****"​
+],​
+"auto_call": true,​
+"search_strategy": 1​
+},​
+"model_info_config": {​
+"model_id": "1706077826"​
+},​
+"workflow_id_list": {​
+"ids": [​
+{​
+"id": "746049108611037****"​
+}​
+]​
+}​
+}
+​
+返回示例​
+​
+JSON
+复制
+{​
+"code": 0,​
+"msg": "",​
+"detail": {​
+"logid": "20241210152726467C48D89D6DB2****"​
+}​
+}
+​
+错误码​
+如果成功调用扣子的 API，返回信息中 code 字段为 0。如果状态码为其他值，则表示接口调用失败。此时 msg 字段中包含详细错误信息，你可以参考[错误码](https://www.coze.cn/docs/developer_guides/coze_error_codes)文档查看对应的解决方法。​
+上一篇
+创建智能体
+下一篇
+发布智能体
+接口限制
+基础信息
+请求参数
+Header
+Body
+PromptInfo
+PrefixPromptInfo
+OnboardingInfo
+Knowledge
+PluginIdList
+PluginIdInfo
+WorkflowIdList
+WorkflowIdInfo
+ModelInfoConfig
+SuggestReplyInfo
+返回参数
+ResponseDetail
+示例
+请求示例
+返回示例
+错误码
+文档是否帮助到您？
+有帮助无帮助
+关闭
+接口限制
+基础信息
+请求参数
+Header
+Body
+PromptInfo
+PrefixPromptInfo
+OnboardingInfo
+Knowledge
+PluginIdList
+PluginIdInfo
+WorkflowIdList
+WorkflowIdInfo
+ModelInfoConfig
+SuggestReplyInfo
+返回参数
+ResponseDetail
+示例
+请求示例
+返回示例
+错误码
+![](https://bat.bing.com/action/0?ti=97179855&Ver=2&mid=d31bedcf-b460-47e6-b5d4-a81273c764c6&bo=1&sid=a6c3ee30d4c211f0966da1ab2d8de18c&vid=a6c3dd00d4c211f0a7ba75271dd5e1e5&vids=0&msclkid=N&uach=pv%3D19.0.0&pi=0&lg=zh-CN&sw=1280&sh=720&sc=24&nwd=1&tl=%E6%96%87%E6%A1%A3%20-%20%E6%89%A3%E5%AD%90&kw=%E6%89%A3%E5%AD%90,%20Coze,%20AI%20Agent,%20%E6%99%BA%E8%83%BD%E5%8A%9E%E5%85%AC,%20%E5%8A%9E%E5%85%AC%E6%8F%90%E6%95%88,%20AI%E5%86%99%E4%BD%9C,%20PPT%E7%94%9F%E6%88%90,%20%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91,%20%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7&p=https%3A%2F%2Fwww.coze.cn%2Fopen%2Fdocs%2Fdeveloper_guides%2Fupdate_bot&r=&lt=1072&mtp=10&evt=pageLoad&sv=2&cdb=AQAQ&rn=499508)
+![](https://bat.bing.com/action/0?ti=97151251&Ver=2&mid=ae546a9d-655f-4a3b-ac31-fafb4f715853&bo=1&sid=a6c3ee30d4c211f0966da1ab2d8de18c&vid=a6c3dd00d4c211f0a7ba75271dd5e1e5&vids=0&msclkid=N&uach=pv%3D19.0.0&pi=0&lg=zh-CN&sw=1280&sh=720&sc=24&nwd=1&tl=%E6%96%87%E6%A1%A3%20-%20%E6%89%A3%E5%AD%90&kw=%E6%89%A3%E5%AD%90,%20Coze,%20AI%20Agent,%20%E6%99%BA%E8%83%BD%E5%8A%9E%E5%85%AC,%20%E5%8A%9E%E5%85%AC%E6%8F%90%E6%95%88,%20AI%E5%86%99%E4%BD%9C,%20PPT%E7%94%9F%E6%88%90,%20%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91,%20%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7&p=https%3A%2F%2Fwww.coze.cn%2Fopen%2Fdocs%2Fdeveloper_guides%2Fupdate_bot&r=&lt=1072&mtp=10&evt=pageLoad&sv=2&cdb=AQAQ&rn=418449)
+rangeDom

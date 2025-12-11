@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.output
+.nuxt
+.nitro
+.cache
+dist
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+.fleet/
+
+# Orchids
+.orchids/
+
+# Misc
+$null
+nul

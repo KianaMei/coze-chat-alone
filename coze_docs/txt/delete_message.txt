@@ -1,0 +1,796 @@
+https://www.coze.cn/open/docs/developer_guides/delete_message
+
+扣子
+创建
+主页
+项目开发
+资源库
+任务中心
+效果评测
+空间配置
+模板商店
+插件商店
+作品社区
+API 管理
+文档中心
+目录
+取消固定
+使用指南
+开发指南
+API 和 SDK
+API 参考
+API 介绍
+更新日志
+准备工作
+API Playground
+鉴权
+鉴权方式概述
+添加个人访问令牌
+添加服务访问令牌
+OAuth 应用管理
+通过示例文件体验 OAuth 授权流程
+OAuth 授权码授权
+OAuth PKCE
+OAuth 设备授权
+OAuth JWT 授权（开发者）
+OAuth JWT 授权（渠道场景）
+OAuth JWT 授权（跨账号授权场景）
+OAuth JWT 授权（企业特权应用）
+OAuth 授权（多人协作场景）
+鉴权常见问题
+智能体和应用
+创建智能体
+更新智能体
+发布智能体
+查看智能体列表
+查看智能体配置
+开启或关闭智能体多人协作
+添加智能体的协作者
+添加应用的协作者
+删除智能体的协作者
+删除应用的协作者
+查看智能体版本列表
+复制资源
+查询资源复制的结果
+下架智能体
+Bot object
+查看应用列表
+智能体发布回调事件
+智能体删除回调事件
+智能体下架回调事件
+工作空间
+创建工作空间
+查看空间列表
+修改工作空间基本信息
+查看空间成员列表
+批量邀请用户加入空间
+批量移除空间中的用户
+文件夹
+查询文件夹列表
+查询文件夹详情
+企业/组织
+成员管理（火山 API）
+添加团队/企业成员
+修改企业员工的角色
+移除团队/企业成员
+创建组织
+修改组织基本信息
+查询组织列表
+添加组织成员
+查询组织成员列表
+修改组织成员角色
+移除组织成员
+会话与消息
+创建会话
+查看会话信息
+查看会话列表
+更新会话名称
+删除会话
+清除上下文
+创建消息
+查看消息列表
+查看消息详情
+修改消息
+删除消息
+消息 type 说明
+提交消息评价
+删除消息评价
+对话
+发起对话
+查看对话详情
+查看对话消息详情
+提交工具执行结果
+取消进行中的对话
+工作流
+执行工作流
+执行工作流（流式响应）
+恢复运行工作流（流式响应）
+恢复运行工作流
+查询工作流异步运行结果
+执行对话流
+查询输出节点的执行结果
+查询工作流列表
+查询工作流基本信息
+查询工作流的版本列表
+开启或关闭工作流多人协作
+添加工作流协作者
+删除工作流协作者
+文件
+上传文件
+查看文件详情
+智能音视频
+ASR、TTS 与音色
+查看音色列表
+语音合成
+语音识别
+复刻音色
+RTC 语音
+创建房间
+Realtime 上行事件
+Realtime 下行事件
+Realtime 事件错误码
+WebSocket 语音
+双向流式语音识别
+双向流式语音识别事件
+双向流式语音合成
+双向流式语音合成事件
+双向流式语音对话
+双向流式对话上行事件
+双向流式对话下行事件
+声纹识别
+创建声纹组
+查询声纹组列表
+更新声纹组信息
+删除声纹组
+创建声纹
+更新声纹
+查询声纹列表
+删除声纹
+声纹特征比对
+知识库
+创建知识库
+查看知识库列表
+修改知识库信息
+删除知识库
+创建知识库文件
+修改知识库文件
+查看知识库文件列表
+查看知识库文件上传进度
+更新知识库图片描述
+查看知识库图片列表
+删除知识库文件
+插件
+查询付费插件列表
+查询插件分类
+查询插件详情
+批量查询插件信息
+调用插件工具
+申请插件扩容回调事件
+插件扩容到期回调事件
+变量
+设置用户变量的值
+获取用户变量的值
+渠道
+更新审核结果
+添加发布平台
+绑定设备
+终端用户配额管控
+创建终端用户权益额度
+查询终端用户的权益配额
+更新终端用户的权益额度
+账单与权益
+导出终端用户账单
+查询账单文件
+查询套餐权益
+账单推送回调事件
+回调
+创建回调应用
+修改回调应用
+查询回调应用列表
+删除回调应用
+订阅回调事件
+查询已订阅的事件
+取消订阅事件
+历史版本接口
+【Deprecated】查看已发布智能体列表
+【Deprecated】获取已发布智能体的配置
+错误码
+API 常见问题
+模型能力差异
+最佳实践
+通过对话接口获取智能体回复
+错误码 4100/4101 问题排查
+如何实现会话隔离
+升级企业/团队版后更新 API 授权
+SDK 参考
+Chat SDK
+Chat SDK 概述
+安装并使用 Chat SDK
+Chat SDK 发布历史
+（历史版本）Chat SDK
+Chat SDK 常见问题
+Python SDK
+Python SDK 概述
+安装 Python SDK
+配置访问密钥
+快速开始
+Node.js SDK
+Node.js SDK 概述
+安装 Node.js SDK
+配置访问密钥
+快速开始
+Java SDK
+Java SDK 概述
+安装 Java SDK
+配置访问密钥
+快速开始
+Go SDK
+Go SDK 概述
+安装 Go SDK
+配置访问密钥
+快速开始
+Web SDK
+安装并使用 Web SDK
+Card SDK
+安装并使用 Card SDK
+实践教程
+扣子空间
+扣子罗盘
+客户案例
+定价与购买
+目录
+大纲
+删除消息
+调用接口在指定会话中删除消息。​
+说明
+暂不支持批量操作，需要逐条删除。​
+删除指定 message id 对应的消息。如果消息 type=answer，会同步删除与之相关的 verbose、function_call 等中间态消息，但不支持仅删除某一条中间态消息。​
+删除消息后，无法通过查看消息列表或查看对话消息详情接口查看已删除的这些消息。​
+​
+基础信息​
+​
+请求方式​
+	
+POST​
+
+
+请求地址​
+	
+​
+https://api.coze.cn/v1/conversation/message/delete​
+​
+
+
+权限​
+	
+deleteMessage​
+确保调用该接口使用的访问令牌开通了 deleteMessage 权限，详细信息参考鉴权方式。​
+
+
+接口说明​
+	
+调用接口在指定会话中删除消息。​
+
+
+​
+请求参数​
+Header​
+​
+参数​
+	
+取值​
+	
+说明​
+
+
+Authorization​
+	
+Bearer $Access_Token​
+	
+用于验证客户端身份的访问令牌。你可以在扣子平台中生成访问令牌，详细信息，参考准备工作。​
+
+
+Content-Type​
+	
+application/json​
+	
+解释请求正文的方式。​
+
+
+​
+Query​
+​
+参数​
+	
+类型​
+	
+是否必选​
+	
+示例​
+	
+说明​
+
+
+conversation_id​
+	
+String​
+	
+必选​
+	
+74076802623535*****​
+	
+待删除的消息所属的会话 ID。​
+
+
+message_id​
+	
+String​
+	
+必选​
+	
+74076856761178****​
+	
+待删除的消息 ID，你可以选择删除会话中的 question 消息和 answer 消息。​
+待删除消息必须属于 conversation_id 指定的会话。​
+仅支持删除 type=answer 或 question 的消息，不支持单独删除 function_call 等中间态消息。当删除 type=answer 的消息时，系统会同步删除与之关联的 function_call 等中间态消息。​
+
+
+​
+返回参数​
+​
+参数​
+	
+类型​
+	
+示例​
+	
+说明​
+
+
+data​
+	
+Object of OpenMessageApi​
+	
+{ "bot_id": "73250261716436*****", "chat_id": "74076802623535*****", "content": "您好呀！今天感觉怎么样？", "content_type": "text", "conversation_id": "74076802623535*****", "created_at": 1724734970, "id": "74076802623536*****", "meta_data": {}, "role": "assistant", "type": "answer", "updated_at": 1724734971 }​
+	
+已删除的 Message 详情。​
+
+
+detail​
+	
+Object of ResponseDetail​
+	
+{ "logid": "20250106172024B5F607030EFFAD653960" }​
+	
+响应详情。​
+
+
+code​
+	
+Long​
+	
+0​
+	
+调用状态码。0 表示调用成功，其他值表示调用失败，你可以通过 msg 字段判断详细的错误原因。​
+
+
+msg​
+	
+String​
+	
+""​
+	
+状态信息。API 调用失败时可通过此字段查看详细错误信息。​
+状态码为 0 时，msg 默认为空。​
+
+
+​
+OpenMessageApi​
+​
+参数​
+	
+类型​
+	
+示例​
+	
+说明​
+
+
+id​
+	
+String​
+	
+738130009748252****​
+	
+Message ID，即消息的唯一标识。​
+
+
+conversation_id​
+	
+String​
+	
+737999610479815****​
+	
+此消息所在的会话 ID。​
+
+
+bot_id​
+	
+String​
+	
+747363834493437****​
+	
+编写此消息的智能体 ID。此参数仅在对话产生的消息中返回。​
+
+
+chat_id​
+	
+String​
+	
+757363834493437****​
+	
+Chat ID。此参数仅在对话产生的消息中返回。​
+不同的对话中，系统会生成新的chat_id。同一个用户在第一次对话和第二次对话时，chat_id不一样。​
+
+
+meta_data​
+	
+JSON Map​
+	
+{"source":"mobile_app","location":"Beijing","custom_flag":"high_priority"}​
+	
+创建消息时的附加信息，以键值对形式存储，获取消息时会原样返回。可用于存储与业务相关的自定义数据。​
+
+
+role​
+	
+String​
+	
+user​
+	
+发送这条消息的实体。取值：​
+user：代表该条消息内容是用户发送的。​
+assistant：代表该条消息内容是 Bot 发送的。​
+
+
+content​
+	
+String​
+	
+早上好，今天星期几？​
+	
+消息的内容，支持纯文本、多模态（文本、图片、文件混合输入）、卡片等多种类型的内容。​
+
+
+content_type​
+	
+String​
+	
+text​
+	
+消息内容的类型，取值包括：​
+text：文本。​
+object_string：多模态内容，即文本和文件的组合、文本和图片的组合。​
+card：卡片。此枚举值仅在接口响应中出现，不支持作为入参。​
+
+
+created_at​
+	
+Long​
+	
+1718592898​
+	
+消息的创建时间，格式为 10 位的 Unixtime 时间戳，单位为秒（s）。​
+
+
+updated_at​
+	
+Long​
+	
+1718592898​
+	
+消息的更新时间，格式为 10 位的 Unixtime 时间戳，单位为秒（s）。​
+
+
+type​
+	
+String​
+	
+question​
+	
+消息类型。​
+question：用户输入内容。​
+answer：智能体返回给用户的消息内容，支持增量返回。如果工作流绑定了 messge 节点，可能会存在多 answer 场景，此时可以用流式返回的结束标志来判断所有 answer 完成。​
+function_call：智能体对话过程中调用函数（function call）的中间结果。​
+tool_response：调用工具 （function call）后返回的结果。​
+follow_up：如果在 Bot 上配置打开了用户问题建议开关，则会返回推荐问题相关的回复内容。​
+verbose：多 answer 场景下，服务端会返回一个 verbose 包，对应的 content 为 JSON 格式，content.msg_type =generate_answer_finish 代表全部 answer 回复完成。​
+Tip
+仅发起对话（v3）接口支持将此参数作为入参，且：​
+如果 autoSaveHistory=true，type 支持设置为 question 或 answer。​
+如果 autoSaveHistory=false，type 支持设置为 question、answer、function_call、tool_output、tool_response。​
+其中，type=question 只能和 role=user 对应，即仅用户角色可以且只能发起 question 类型的消息。详细说明可参考消息 type 说明。​
+​
+
+
+usage​
+	
+Object of Usage​
+	
+​
+	
+​
+
+
+time_cost​
+	
+Object of TimeCost​
+	
+​
+	
+​
+
+
+section_id​
+	
+String​
+	
+757363834493437****​
+	
+上下文片段 ID。每次清除上下文都会生成一个新的 section_id。​
+
+
+content_expands​
+	
+Array of ChatMessageContentExpand​
+	
+​
+	
+引用、高亮等文本标记​
+
+
+parent_message_id​
+	
+String​
+	
+​
+	
+​
+
+
+reasoning_content​
+	
+String​
+	
+好的，我现在需要给一个13岁的大学生提供学习建议。首先，我得考虑用户的情况……​
+	
+模型的思维链（CoT），展示模型如何将复杂问题逐步分解为多个简单步骤并推导出最终答案。仅当模型支持深度思考、且智能体开启了深度思考时返回该字段，当前支持深度思考的模型如下：​
+豆包·1.6·自动深度思考·多模态模型​
+豆包·1.6·极致速度·多模态模型​
+豆包·1.5·Pro·视觉深度思考​
+豆包·GUI·Agent模型​
+DeepSeek-R1​
+
+
+​
+Usage​
+​
+参数​
+	
+类型​
+	
+示例​
+	
+说明​
+
+
+token_count​
+	
+Integer​
+	
+​
+	
+总的 token 消耗​
+
+
+input_tokens​
+	
+Integer​
+	
+​
+	
+​
+
+
+output_tokens​
+	
+Integer​
+	
+​
+	
+​
+
+
+input_tokens_details​
+	
+Object of PromptUsage​
+	
+​
+	
+​
+
+
+output_tokens_details​
+	
+Object of CompletionUsage​
+	
+​
+	
+​
+
+
+​
+PromptUsage​
+​
+参数​
+	
+类型​
+	
+示例​
+	
+说明​
+
+
+cached_tokens​
+	
+Integer​
+	
+​
+	
+​
+
+
+​
+CompletionUsage​
+​
+参数​
+	
+类型​
+	
+示例​
+	
+说明​
+
+
+reasoning_tokens​
+	
+Integer​
+	
+​
+	
+​
+
+
+​
+TimeCost​
+​
+参数​
+	
+类型​
+	
+示例​
+	
+说明​
+
+
+total_duration_ms​
+	
+Integer​
+	
+​
+	
+耗时、ms​
+
+
+​
+ChatMessageContentExpand​
+​
+参数​
+	
+类型​
+	
+示例​
+	
+说明​
+
+
+info​
+	
+String​
+	
+​
+	
+​
+
+
+type​
+	
+String​
+	
+​
+	
+​
+
+
+​
+ResponseDetail​
+​
+参数​
+	
+类型​
+	
+示例​
+	
+说明​
+
+
+logid​
+	
+String​
+	
+20241210152726467C48D89D6DB2****​
+	
+本次请求的日志 ID。如果遇到异常报错场景，且反复重试仍然报错，可以根据此 logid 及错误码联系扣子团队获取帮助。详细说明可参考获取帮助和技术支持。​
+
+
+​
+示例​
+请求示例​
+​
+curl --location --request POST 'https://api.coze.cn/v1/conversation/message/delete?conversation_id=74076802623535*****&message_id=74076856761178****' \​
+--header 'Authorization: Bearer pat_OYDacMzM3WyOWV3Dtj2bHRMymzxP****' \​
+--header 'Content-Type: application/json' \​
+​
+返回示例​
+​
+{​
+  "code": 0,​
+  "data": {​
+    "bot_id": "73250261716436*****",​
+    "chat_id": "74076802623535*****",​
+    "content": "您好呀！今天感觉怎么样？",​
+    "content_type": "text",​
+    "conversation_id": "74076802623535*****",​
+    "created_at": 1724734970,​
+    "id": "74076802623536*****",​
+    "meta_data": {},​
+    "role": "assistant",​
+    "type": "answer",​
+    "updated_at": 1724734971​
+  },​
+  "msg": ""​
+}
+​
+错误码​
+如果成功调用扣子的 API，返回信息中 code 字段为 0。如果状态码为其他值，则表示接口调用失败。此时 msg 字段中包含详细错误信息，你可以参考错误码文档查看对应的解决方法。​
+上一篇
+修改消息
+下一篇
+消息 type 说明
+基础信息
+请求参数
+Header
+Query
+返回参数
+OpenMessageApi
+Usage
+PromptUsage
+CompletionUsage
+TimeCost
+ChatMessageContentExpand
+ResponseDetail
+示例
+请求示例
+返回示例
+错误码
+rangeDom

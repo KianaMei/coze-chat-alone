@@ -1,0 +1,22 @@
+{
+  "name": "chat-widget",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@arco-design/web-vue": "^2.56.3",
+    "marked": "^17.0.1",
+    "nuxt": "^3.17.5",
+    "vue": "^3.5.16"
+  },
+  "devDependencies": {
+    "@babel/code-frame": "^7.27.1",
+    "typescript": "^5.8.3"
+  }
+}

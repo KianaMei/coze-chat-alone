@@ -1,0 +1,481 @@
+https://www.coze.cn/open/docs/developer_guides/web_sdk
+
+扣子
+创建
+主页
+项目开发
+资源库
+任务中心
+效果评测
+空间配置
+模板商店
+插件商店
+作品社区
+API 管理
+文档中心
+目录
+取消固定
+使用指南
+开发指南
+API 和 SDK
+API 参考
+API 介绍
+更新日志
+准备工作
+API Playground
+鉴权
+鉴权方式概述
+添加个人访问令牌
+添加服务访问令牌
+OAuth 应用管理
+通过示例文件体验 OAuth 授权流程
+OAuth 授权码授权
+OAuth PKCE
+OAuth 设备授权
+OAuth JWT 授权（开发者）
+OAuth JWT 授权（渠道场景）
+OAuth JWT 授权（跨账号授权场景）
+OAuth JWT 授权（企业特权应用）
+OAuth 授权（多人协作场景）
+鉴权常见问题
+智能体和应用
+创建智能体
+更新智能体
+发布智能体
+查看智能体列表
+查看智能体配置
+开启或关闭智能体多人协作
+添加智能体的协作者
+添加应用的协作者
+删除智能体的协作者
+删除应用的协作者
+查看智能体版本列表
+复制资源
+查询资源复制的结果
+下架智能体
+Bot object
+查看应用列表
+智能体发布回调事件
+智能体删除回调事件
+智能体下架回调事件
+工作空间
+创建工作空间
+查看空间列表
+修改工作空间基本信息
+查看空间成员列表
+批量邀请用户加入空间
+批量移除空间中的用户
+文件夹
+查询文件夹列表
+查询文件夹详情
+企业/组织
+成员管理（火山 API）
+添加团队/企业成员
+修改企业员工的角色
+移除团队/企业成员
+创建组织
+修改组织基本信息
+查询组织列表
+添加组织成员
+查询组织成员列表
+修改组织成员角色
+移除组织成员
+会话与消息
+创建会话
+查看会话信息
+查看会话列表
+更新会话名称
+删除会话
+清除上下文
+创建消息
+查看消息列表
+查看消息详情
+修改消息
+删除消息
+消息 type 说明
+提交消息评价
+删除消息评价
+对话
+发起对话
+查看对话详情
+查看对话消息详情
+提交工具执行结果
+取消进行中的对话
+工作流
+执行工作流
+执行工作流（流式响应）
+恢复运行工作流（流式响应）
+恢复运行工作流
+查询工作流异步运行结果
+执行对话流
+查询输出节点的执行结果
+查询工作流列表
+查询工作流基本信息
+查询工作流的版本列表
+开启或关闭工作流多人协作
+添加工作流协作者
+删除工作流协作者
+文件
+上传文件
+查看文件详情
+智能音视频
+ASR、TTS 与音色
+查看音色列表
+语音合成
+语音识别
+复刻音色
+RTC 语音
+创建房间
+Realtime 上行事件
+Realtime 下行事件
+Realtime 事件错误码
+WebSocket 语音
+双向流式语音识别
+双向流式语音识别事件
+双向流式语音合成
+双向流式语音合成事件
+双向流式语音对话
+双向流式对话上行事件
+双向流式对话下行事件
+声纹识别
+创建声纹组
+查询声纹组列表
+更新声纹组信息
+删除声纹组
+创建声纹
+更新声纹
+查询声纹列表
+删除声纹
+声纹特征比对
+知识库
+创建知识库
+查看知识库列表
+修改知识库信息
+删除知识库
+创建知识库文件
+修改知识库文件
+查看知识库文件列表
+查看知识库文件上传进度
+更新知识库图片描述
+查看知识库图片列表
+删除知识库文件
+插件
+查询付费插件列表
+查询插件分类
+查询插件详情
+批量查询插件信息
+调用插件工具
+申请插件扩容回调事件
+插件扩容到期回调事件
+变量
+设置用户变量的值
+获取用户变量的值
+渠道
+更新审核结果
+添加发布平台
+绑定设备
+终端用户配额管控
+创建终端用户权益额度
+查询终端用户的权益配额
+更新终端用户的权益额度
+账单与权益
+导出终端用户账单
+查询账单文件
+查询套餐权益
+账单推送回调事件
+回调
+创建回调应用
+修改回调应用
+查询回调应用列表
+删除回调应用
+订阅回调事件
+查询已订阅的事件
+取消订阅事件
+历史版本接口
+【Deprecated】查看已发布智能体列表
+【Deprecated】获取已发布智能体的配置
+错误码
+API 常见问题
+模型能力差异
+最佳实践
+通过对话接口获取智能体回复
+错误码 4100/4101 问题排查
+如何实现会话隔离
+升级企业/团队版后更新 API 授权
+SDK 参考
+Chat SDK
+Chat SDK 概述
+安装并使用 Chat SDK
+Chat SDK 发布历史
+（历史版本）Chat SDK
+Chat SDK 常见问题
+Python SDK
+Python SDK 概述
+安装 Python SDK
+配置访问密钥
+快速开始
+Node.js SDK
+Node.js SDK 概述
+安装 Node.js SDK
+配置访问密钥
+快速开始
+Java SDK
+Java SDK 概述
+安装 Java SDK
+配置访问密钥
+快速开始
+Go SDK
+Go SDK 概述
+安装 Go SDK
+配置访问密钥
+快速开始
+Web SDK
+安装并使用 Web SDK
+Card SDK
+安装并使用 Card SDK
+实践教程
+扣子空间
+扣子罗盘
+客户案例
+定价与购买
+目录
+大纲
+（历史版本）Chat SDK
+扣子 Chat SDK是一个 JavaScript 库，您可以使用它将智能体集成到您的 Web 应用程序中。集成后，用户可从网页与智能体对话。 ​
+注意
+ 1.0.0-beta.4 版本之前的 Chat SDK 为历史版本，开发者无需鉴权即可集成 SDK。历史版本 Chat SDK 仅提供基础的对话能力，安全性及扩展性较低，后续将不再维护和更新。推荐你使用最新版本的 Chat SDK ​安装并使用 Chat SDK，体验更安全、更友好的智能对话服务。​
+​
+前提条件​
+已经在扣子平台创建了智能体。 ​
+安装 SDK ​
+按照以下步骤通过将 JavaScript 库添加到您的 Web 应用程序来安装 SDK。 ​
+1.
+登录扣子平台。 ​
+2.
+查找要部署为 Web 服务的目标智能体。 ​
+3.
+在编排页面，复制并保存当前页面 URL 的最后一个字符串。​
+这个是智能体id，将在以后的配置中使用。​
+4.
+点击发布。 ​
+5.
+在发布页面，选择 Chat SDK 选择并单击发布。​
+发布 SDK 后才能在新的发布页面选择安装 SDK。​
+6.
+回到智能体的编排页面，再次点击发布，进入发布页面。​
+7.
+在发布页面，点击安装。​
+​
+​
+​
+​
+​
+页面将展示智能体的安装代码。直接将代码粘贴到网页的 <body> 区域中即可。你也可以按需添加各种属性配置，支持属性可参考​初始化 SDK 。​
+说明
+{{version}} 部分为 Chat SDK 的版本号，例如 0.1.0-beta.5。​
+​
+安装代码示例如下：​
+​
+      <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/{{version}}/libs/cn/index.js"></script>​
+      <script>​
+          new CozeWebSDK.WebChatClient({​
+            config: {​
+              bot_id: '738176858****',​
+            },​
+            componentProps: {​
+              title: 'Coze',​
+            },​
+          });​
+      </script>​
+​
+初始化 SDK ​
+安装 Chat SDK 后，您现在可以初始化智能体客户端。将以下代码添加到您要初始化智能体客户端的页面中。 ​
+​
+<script>​
+  new CozeWebSDK.WebChatClient(options);​
+</script>​
+​
+options 参数包含 config 和 componentProps 两个属性，详细说明可参见下表。 ​
+​
+属性​
+	
+参数​
+	
+是否必选​
+	
+数据类型​
+	
+描述​
+
+
+ config ​
+	
+bot_id ​
+	
+必选​
+	
+string ​
+	
+智能体ID。 ​
+进入智能体的 开发页面，开发页面 URL 中 bot 参数后的数字就是智能体ID。例如https://www.coze.cn/space/341****/bot/73428668*****，智能体ID 为73428668*****。​
+说明
+确保该智能体已经发布为 Chat SDK。 ​
+​
+
+
+componentProps ​
+	
+title ​
+	
+可选​
+	
+string ​
+	
+智能体名字，如果没有配置，使用默认名：扣子 Bot。 ​
+
+
+icon ​
+	
+可选​
+	
+string ​
+	
+智能体的显示图标，如果不设置，则使用默认扣子图标。 ​
+
+
+lang ​
+	
+可选​
+	
+string ​
+​
+	
+智能体的系统语言，例如智能体的工具提示。 ​
+en：（默认）英语 ​
+zh-CN：中文 ​
+​
+​
+​
+​
+​
+
+
+layout ​
+​
+	
+可选​
+	
+string​
+	
+智能体窗口的布局风格，支持设置为：​
+mobile：移动端风格。​
+pc：PC 端风格。​
+未设置此参数时，系统会自动识别设备，设置相应的布局风格。​
+
+
+width​
+	
+可选​
+	
+number​
+	
+PC 端智能体窗口的宽度，单位为 px，默认为 460。​
+建议综合考虑各种尺寸的屏幕，设置一个合适的宽度。​
+仅在 layout = pc 时生效。​
+
+
+​
+销毁 SDK 客户端 ​
+您可以添加一个 destroy 方法销毁智能体客户端。 ​
+​
+<script>​
+   const client = new CozeWebSDK.WebChatClient(options);​
+   client.destroy();​
+</script>​
+​
+解绑智能体​
+如果你不需要智能体继续以 web 服务方式使用，在发布页面，点击解绑按钮。 ​
+说明
+一旦解绑，智能体就无法通过集成的 Web 应用程序使用。 如果您想恢复 Web 应用程序的访问，需要再次将智能体发布为 Chat SDK。 ​
+​
+示例​
+以下是一段完整的 Chat SDK 的代码示例。 ​
+​
+<!doctype html>​
+<html lang="en">​
+<head>​
+    <style>​
+        /* 自定义悬浮入口的位置 */​
+        #position_demo {​
+            position: absolute;​
+            right: 10px;​
+            bottom: 20px;​
+        }​
+    </style>​
+</head>​
+<body>​
+<h1>Hello Bot</h1>​
+<div id="position_demo"></div>​
+    //{{version}} 为 Chat SDK 的版本号，例如 0.1.0-beta.5。你可以在发布页面的安装代码中查看最新版本的version ​
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/{{version}}/libs/cn/index.js"></script>​
+<script>​
+    const bot_id = '7330182852614******';​
+    // 自定义智能体名称和icon​
+    const title = 'AI翻译助手';​
+    const icon = 'https://lf-bot-studio-plugin-resource.coze.cn/obj/bot-studio-platform-plugin-tos/artist/image/7e813aa2c7e14ebb9e2d1a989acfb128.png';​
+    const lang = 'zh-CN';​
+    const layout = 'pc';​
+    const width = 800;​
+    ​
+    new CozeWebSDK.WebChatClient({​
+        config: {​
+            bot_id,​
+        },​
+        componentProps: {​
+            title,​
+            icon,​
+            width,​
+        },​
+        el: document.getElementById('position_demo'),​
+    });​
+</script>​
+</body>​
+</html>​
+​
+在本地创建一个HTML文件，将上述代码复制进文件后，本地运行的效果如下所示。 ​
+说明
+注意将 bot_id 替换为已经发布为 Chat SDK 的智能体的 ID，{{version}} 替换为发布页面安装代码中的版本号。​
+​
+其中： ​
+图标 1 是 icon 参数值。 ​
+图标 2 是 title 参数值。 ​
+图标 3 是 lang 参数控制的语言配置。 ​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+​
+上一篇
+Chat SDK 发布历史
+下一篇
+Chat SDK 常见问题
+前提条件
+安装 SDK
+初始化 SDK
+销毁 SDK 客户端
+解绑智能体
+示例
+rangeDom

@@ -1,0 +1,749 @@
+https://www.coze.cn/open/docs/developer_guides/update_authorization
+
+扣子
+创建
+主页
+项目开发
+资源库
+任务中心
+效果评测
+空间配置
+模板商店
+插件商店
+作品社区
+API 管理
+文档中心
+目录
+取消固定
+使用指南
+开发指南
+API 和 SDK
+API 参考
+API 介绍
+更新日志
+准备工作
+API Playground
+鉴权
+鉴权方式概述
+添加个人访问令牌
+添加服务访问令牌
+OAuth 应用管理
+通过示例文件体验 OAuth 授权流程
+OAuth 授权码授权
+OAuth PKCE
+OAuth 设备授权
+OAuth JWT 授权（开发者）
+OAuth JWT 授权（渠道场景）
+OAuth JWT 授权（跨账号授权场景）
+OAuth JWT 授权（企业特权应用）
+OAuth 授权（多人协作场景）
+鉴权常见问题
+智能体和应用
+创建智能体
+更新智能体
+发布智能体
+查看智能体列表
+查看智能体配置
+开启或关闭智能体多人协作
+添加智能体的协作者
+添加应用的协作者
+删除智能体的协作者
+删除应用的协作者
+查看智能体版本列表
+复制资源
+查询资源复制的结果
+下架智能体
+Bot object
+查看应用列表
+智能体发布回调事件
+智能体删除回调事件
+智能体下架回调事件
+工作空间
+创建工作空间
+查看空间列表
+修改工作空间基本信息
+查看空间成员列表
+批量邀请用户加入空间
+批量移除空间中的用户
+文件夹
+查询文件夹列表
+查询文件夹详情
+企业/组织
+成员管理（火山 API）
+添加团队/企业成员
+修改企业员工的角色
+移除团队/企业成员
+创建组织
+修改组织基本信息
+查询组织列表
+添加组织成员
+查询组织成员列表
+修改组织成员角色
+移除组织成员
+会话与消息
+创建会话
+查看会话信息
+查看会话列表
+更新会话名称
+删除会话
+清除上下文
+创建消息
+查看消息列表
+查看消息详情
+修改消息
+删除消息
+消息 type 说明
+提交消息评价
+删除消息评价
+对话
+发起对话
+查看对话详情
+查看对话消息详情
+提交工具执行结果
+取消进行中的对话
+工作流
+执行工作流
+执行工作流（流式响应）
+恢复运行工作流（流式响应）
+恢复运行工作流
+查询工作流异步运行结果
+执行对话流
+查询输出节点的执行结果
+查询工作流列表
+查询工作流基本信息
+查询工作流的版本列表
+开启或关闭工作流多人协作
+添加工作流协作者
+删除工作流协作者
+文件
+上传文件
+查看文件详情
+智能音视频
+ASR、TTS 与音色
+查看音色列表
+语音合成
+语音识别
+复刻音色
+RTC 语音
+创建房间
+Realtime 上行事件
+Realtime 下行事件
+Realtime 事件错误码
+WebSocket 语音
+双向流式语音识别
+双向流式语音识别事件
+双向流式语音合成
+双向流式语音合成事件
+双向流式语音对话
+双向流式对话上行事件
+双向流式对话下行事件
+声纹识别
+创建声纹组
+查询声纹组列表
+更新声纹组信息
+删除声纹组
+创建声纹
+更新声纹
+查询声纹列表
+删除声纹
+声纹特征比对
+知识库
+创建知识库
+查看知识库列表
+修改知识库信息
+删除知识库
+创建知识库文件
+修改知识库文件
+查看知识库文件列表
+查看知识库文件上传进度
+更新知识库图片描述
+查看知识库图片列表
+删除知识库文件
+插件
+查询付费插件列表
+查询插件分类
+查询插件详情
+批量查询插件信息
+调用插件工具
+申请插件扩容回调事件
+插件扩容到期回调事件
+变量
+设置用户变量的值
+获取用户变量的值
+渠道
+更新审核结果
+添加发布平台
+绑定设备
+终端用户配额管控
+创建终端用户权益额度
+查询终端用户的权益配额
+更新终端用户的权益额度
+账单与权益
+导出终端用户账单
+查询账单文件
+查询套餐权益
+账单推送回调事件
+回调
+创建回调应用
+修改回调应用
+查询回调应用列表
+删除回调应用
+订阅回调事件
+查询已订阅的事件
+取消订阅事件
+历史版本接口
+【Deprecated】查看已发布智能体列表
+【Deprecated】获取已发布智能体的配置
+错误码
+API 常见问题
+模型能力差异
+最佳实践
+通过对话接口获取智能体回复
+错误码 4100/4101 问题排查
+如何实现会话隔离
+升级企业/团队版后更新 API 授权
+SDK 参考
+Chat SDK
+Chat SDK 概述
+安装并使用 Chat SDK
+Chat SDK 发布历史
+（历史版本）Chat SDK
+Chat SDK 常见问题
+Python SDK
+Python SDK 概述
+安装 Python SDK
+配置访问密钥
+快速开始
+Node.js SDK
+Node.js SDK 概述
+安装 Node.js SDK
+配置访问密钥
+快速开始
+Java SDK
+Java SDK 概述
+安装 Java SDK
+配置访问密钥
+快速开始
+Go SDK
+Go SDK 概述
+安装 Go SDK
+配置访问密钥
+快速开始
+Web SDK
+安装并使用 Web SDK
+Card SDK
+安装并使用 Card SDK
+实践教程
+扣子空间
+扣子罗盘
+客户案例
+定价与购买
+目录
+大纲
+升级企业/团队版后更新 API 授权
+从专业版、个人进阶版升级至企业/团队版后，往往需要将已创建的工作空间迁移到新的企业/团队中，以便原有的智能体和扣子应用使用企业/团队版的高级权益。如果你待迁移的智能体、扣子应用或工作流已发布到 API 渠道，直接迁移工作空间会导致原有的 API 授权失效，线上用户调用 API 时会因鉴权失败而无法正常访问。​
+在这种场景下，企业/团队的超级管理员需要在迁移工作空间之前，先修改业务代码中的鉴权部分，添加新老授权的兼容逻辑，保障平滑迁移，过程线上无感知。​
+说明
+从团队版升级至企业版时，无需迁移工作空间。​
+​
+迁移 API 授权​
+注意事项​
+​
+注意事项​
+	
+说明​
+
+
+操作时段​
+	
+如果智能体、应用或工作流已发布到生产环境、线上用户量较大，为了保障平滑迁移，建议选择服务流量较少的时段执行本步骤，例如深夜或凌晨时段。​
+
+
+权限设置​
+	
+请确保已覆盖原授权的所有权限点，以免因权限不足导致 API 访问失败。​
+操作时，访问空间建议选择所有工作空间，确保空间迁移后访问令牌能访问该企业或团队中的所有空间，包括后续创建的新空间。​
+
+
+API 方式创建会话​
+	
+由于智能体等资源属于空间，API 方式创建的会话属于扣子用户，迁移空间之后，智能体无权限访问原个人账号下的会话，建议开发者创建新会话。创建方式可参考​创建会话。​
+
+
+原 OAuth 应用​
+	
+请勿禁用或删除参考本文档完成改造的个人版 OAuth 应用，否则会影响在企业团队中的 OpenAPI 访问。​
+
+
+​
+步骤一：确定授权类型​
+扣子提供了个人访问令牌、OBO 等多种授权类型，各种授权类型下，更新 API 授权的方式不同。你需要先确定自己的授权方式。​
+不同的扣子 OAuth 授权对应的授权类型和适用的客户端类型如下表所示。​
+​
+授权类型​
+	
+授权方式​
+	
+客户端类型​
+
+
+个人访问令牌​
+	
+​添加个人访问令牌​
+	
+无​
+
+
+OBO 授权​
+	
+​OAuth 授权码授权​
+	
+Web 后端应用​
+
+
+​OAuth PKCE​
+	
+移动端/PC 桌面端/单页面应用​
+
+
+​OAuth 设备授权​
+	
+TV 端/设备应用/类命令行程序​
+
+
+AppAuth 授权​
+	
+​OAuth JWT 授权（开发者）​
+	
+服务类应用​
+
+
+​
+步骤二：更新 API 授权​
+AppAuth 授权场景​
+AppAuth 授权是指应用以自身身份去访问扣子平台的资源。例如，一个后端服务需要从扣子平台获取数据。​
+1 重新授权 OAuth 应用​
+企业团队的超级管理员或管理员在企业团队版下完成对待迁移的 OAuth 应用的授权。​
+1.
+创建 OAuth 应用的扣子用户切换到个人版，并访问扣子 API ＞ OAuth 应用页面。​
+2.
+找到待迁移的 OAuth 应用，并在操作列单击分享图标。​
+​
+​
+​
+​
+​
+3.
+将复制好的链接发送给企业团队的超级管理员或管理员，由其打开链接完成授权。​
+授权相关的设置方式如下：​
+授权范围选择企业​
+工作空间选择所有工作空间​
+​
+​
+​
+​
+​
+4.
+确认授权成功。​
+企业团队的超级管理员或管理员切换到企业团队中。在左侧导航栏单击企业/团队 API，访问应用安装管理页面，确认授权成功。​
+​
+​
+​
+​
+​
+2 更新授权代码​
+应用程序在请求 OpenAPI 时，需要同时获取个人版和企业版下的授权凭证，默认先基于个人版的凭证访问资源，如果返回请求无权限（4100 和 4101） 或资源不存在的错误码，则再次基于企业版的凭证访问资源。​
+1.
+获取授权代码中需要填写的个人账号 UID 和企业 ID。​
+​
+账号​
+	
+获取方式​
+	
+示例​
+
+
+个人账号 UID​
+（personalAccountId）​
+	
+必须是创建 OAuth 应用的扣子账号 UID。​
+在扣子平台左下角单击个人头像，并选择账号设置，在账号页面中查看 UID。​
+​
+	
+​
+​
+​
+​
+​
+
+
+企业 ID​
+（enterpriseAccountId）​
+	
+切换到企业中，并在左侧导航栏中单击企业管理，URL 中 enterprise 参数后的数字就是 enterpriseAccountId。例如，在 URL https://www.coze.cn/enterprise/volcano_2105850***/enterprise/workspace中，volcano_2105850*** 就是 enterpriseAccountId。​
+	
+​
+​
+​
+​
+​
+
+
+​
+2.
+更新授权代码。​
+以聊天接口为例，Go 语言代码改造方式如下，注意其中高亮部分：​
+​
+package main ​
+ ​
+import ( ​
+   "context" ​
+   "errors" ​
+   "fmt" ​
+   "github.com/coze-dev/coze-go" ​
+   "os" ​
+) ​
+ ​
+func main() { ​
+   // The default access is api.coze.com, but if you need to access api.coze.cn, ​
+   // please use base_url to configure the api endpoint to access ​
+   cozeAPIBase := os.Getenv("COZE_API_BASE") ​
+   jwtOauthClientID := os.Getenv("COZE_JWT_OAUTH_CLIENT_ID") ​
+   jwtOauthPrivateKey := os.Getenv("COZE_JWT_OAUTH_PRIVATE_KEY") ​
+   jwtOauthPrivateKeyFilePath := os.Getenv("COZE_JWT_OAUTH_PRIVATE_KEY_FILE_PATH") ​
+   jwtOauthPublicKeyID := os.Getenv("COZE_JWT_OAUTH_PUBLIC_KEY_ID") ​
+   botID := os.Getenv("PUBLISHED_BOT_ID") ​
+   uid := os.Getenv("USER_ID") ​
+ ​
+   // Read private key from file ​
+   privateKeyBytes, err := os.ReadFile(jwtOauthPrivateKeyFilePath) ​
+   if err != nil { ​
+      fmt.Printf("Error reading private key file: %v\n", err) ​
+      return ​
+   } ​
+   jwtOauthPrivateKey = string(privateKeyBytes) ​
+ ​
+   oauth, err := coze.NewJWTOAuthClient(coze.NewJWTOAuthClientParam{ ​
+      ClientID: jwtOauthClientID, PublicKey: jwtOauthPublicKeyID, PrivateKeyPEM: jwtOauthPrivateKey, ​
+   }, coze.WithAuthBaseURL(cozeAPIBase)) ​
+   if err != nil { ​
+      fmt.Printf("Error creating JWT OAuth client: %v\n", err) ​
+      return ​
+   } ​
+   ctx := context.Background() ​
+ ​
+   var personalAccountId int64 = 12345   // 个人版 账号 UID​
+   var enterpriseAccountId int64 = 23456 // 企业版 账号 ID​
+ ​
+   // 获取个人版下的访问凭证​
+   cozeCli := coze.NewCozeAPI(coze.NewJWTAuth(oauth, &coze.GetJWTAccessTokenReq{ ​
+      AccountID:   &personalAccountId,​
+   }), coze.WithBaseURL(cozeAPIBase)) ​
+   // 获取企业版下的访问凭证​
+   cozeCli4Enterprise := coze.NewCozeAPI(coze.NewJWTAuth(oauth, &coze.GetJWTAccessTokenReq{​
+      EnterpriseID:   &enterpriseAccountId,​
+   }), coze.WithBaseURL(cozeAPIBase))​
+ ​
+   req := &coze.CreateChatsReq{ ​
+      BotID:  botID, ​
+      UserID: uid, ​
+      Messages: []*coze.Message{ ​
+         coze.BuildUserQuestionText("What can you do?", nil), ​
+      }, ​
+   } ​
+ ​
+   // 先尝试通过个人版的凭证请求chat接口​
+   resp, err := cozeCli.Chat.Create(ctx, req) ​
+   if err == nil { ​
+      fmt.Println(resp) ​
+      return ​
+   } ​
+   // 当请求个人版接口出现鉴权失败时, 再尝试基于企业版的凭证请求chat接口​
+   cozeErr := coze.Error{}​
+   if errors.As(err, &cozeErr) {​
+      // no permission error code​
+      if cozeErr.Code == 4101 || cozeErr.Code == 4100 {​
+         // no permission try chat with enterprise account​
+         resp, err = cozeCli4Enterprise.Chat.Create(ctx, req)​
+         if err == nil {​
+            fmt.Println(resp)​
+            return​
+         }​
+      }​
+   }​
+   fmt.Println(err) ​
+} ​
+​
+3.
+验证授权逻辑。​
+修改授权相关代码之后，建议确认代码中增加的逻辑准确、有效。例如在企业中新建空间和智能体，使用更新后的授权代码访问新智能体，对齐接口能力，验证通过之后再迁移工作空间。​
+3 迁移工作空间到企业团队​
+操作步骤可参考​迁移空间到团队或企业。成功迁移之后，后端服务如果使用旧的凭证请求扣子 OpenAPI，鉴权失败之后会自动切换为新的凭证，保证线上访问无影响。​
+个人访问令牌场景​
+如果你通过个人访问令牌来请求扣子 OpenAPI，那么可以创建新的个人访问令牌，并在代码中添加兼容逻辑。即在授权代码中同时添加旧的个人访问令牌和新的个人访问令牌，如果调用扣子 Open API 鉴权失败，则使用扣子企业版或团队版中的个人访问令牌。​
+详细操作步骤如下：​
+1 创建新的个人访问令牌​
+1.
+企业超级管理员或管理员切换到企业团队中。​
+2.
+从左侧导航栏访问企业/团队 API ＞ 个人访问令牌页面。​
+3.
+在页面右上角单击创建访问令牌。注意新令牌设置为企业团队内所有工作空间有效。​
+​
+​
+​
+​
+​
+2 更新授权代码​
+在授权代码中添加旧的个人访问令牌和新的个人访问令牌，如果使用旧令牌调用扣子 Open API 鉴权失败，则自动切换为企业团队空间的新令牌。​
+修改授权相关代码之后，建议确认代码中增加的逻辑准确、有效。例如在企业中新建空间和智能体，使用更新后的授权代码访问新智能体，对齐接口能力，验证通过之后再迁移工作空间。​
+Go 语言代码示例如下，其中高亮部分为新增内容。​
+​
+package main​
+​
+import (​
+   "context"​
+   "errors"​
+   "fmt"​
+   "os"​
+​
+   "github.com/coze-dev/coze-go"​
+)​
+​
+// How to use personal access token to init Coze client.​
+//​
+// Firstly, you need to access https://www.coze.com/open/oauth/pats (for the cn environment,​
+// visit https://www.coze.cn/open/oauth/pats).​
+//​
+// Click to add a new token. After setting the appropriate name, expiration time, and​
+// permissions, click OK to generate your personal access token. Please store it in a​
+// secure environment to prevent this personal access token from being disclosed.​
+func main() {​
+   cozeAPIToken := os.Getenv("COZE_API_TOKEN")​
+   cozeAPIToken4Enterprise := os.Getenv("COZE_API_TOKEN_ENTERPRISE")​
+​
+   //​
+   // The default access is api.coze.com, but if you need to access api.coze.cn,​
+   // please use base_url to configure the api endpoint to access​
+   //​
+   cozeAPIBase := os.Getenv("COZE_API_BASE")​
+​
+   ctx := context.Background()​
+   //​
+   // The Coze SDK offers the TokenAuth class for constructing an Auth class based on a fixed​
+   // access token. Meanwhile, the Coze class enables the passing in of an Auth class to build​
+   // a coze client.​
+   //​
+   // Therefore, you can utilize the following code to initialize a coze client.​
+   //​
+   ​
+   cozeCli := coze.NewCozeAPI(coze.NewTokenAuth(cozeAPIToken), coze.WithBaseURL(cozeAPIBase))​
+   cozeCli4Enterprise := coze.NewCozeAPI(coze.NewTokenAuth(cozeAPIToken4Enterprise), coze.WithBaseURL(cozeAPIBase))​
+   ​
+   // Try chat with the bot under your personal account​
+   resp, err := cozeCli.Chat.Create(ctx, &coze.CreateChatsReq{​
+      // your chat request params​
+   })​
+   if err == nil {​
+      fmt.Println(resp)​
+      return​
+   }​
+   // Retry chat with the bot under your enterprise account​
+   cozeErr := coze.Error{}​
+   if errors.As(err, &cozeErr) {​
+      // Authentication or Authorization Deny​
+      if cozeErr.Code == 4100 || cozeErr.Code == 4101 {​
+         resp, err = cozeCli4Enterprise.Chat.Create(ctx, &coze.CreateChatsReq{​
+            // your chat request params​
+         })​
+         if err == nil {​
+            fmt.Println(resp)​
+            return​
+         }​
+      }​
+   }​
+   fmt.Println(err)​
+}​
+​
+3 迁移工作空间到企业团队​
+操作步骤可参考​迁移空间到团队或企业。成功迁移之后，后端服务如果使用旧的个人访问密钥请求扣子 OpenAPI，鉴权失败之后会自动切换为新的密钥，保证线上访问无影响。​
+说明
+建议仅在测试环境、调试场景中使用个人访问令牌，并严格限制其使用范围和有效期，生产环境中建议避免使用个人访问令牌。​
+迁移成功且验证 API 访问正常之后，建议及时删除旧的个人访问令牌，以免令牌到期后无法访问。​
+​
+OBO 授权场景​
+OBO （On Behalf Of）授权是指应用以用户的身份去访问扣子平台的资源。例如，在 Web 后端应用、TV 端/设备应用/类命令行程序、移动端/PC 桌面端/单页面应用中，应用获取授权后，以用户的身份调用扣子平台的 API。​
+在 OBO 授权场景中，开发者需要添加授权失败场景的处理策略，即鉴权失败时重新触发授权，获取新的 Access Token。​
+1 更新授权代码​
+修改业务代码，设置后端服务在鉴权失败时重新触发授权，获取新的 Access Token。​
+修改授权相关代码之后，建议确认代码中增加的逻辑准确、有效。例如在企业中新建空间和智能体，使用更新后的授权代码访问新智能体，对齐接口能力，验证通过之后再迁移工作空间。​
+本文以 Go 语言 OAuth 授权码授权场景为例，具体实现请参考以下示例代码中高亮的部分。​
+​
+package main​
+​
+import (​
+   "context"​
+   "errors"​
+   "fmt"​
+   "net/http"​
+   "os"​
+​
+   "github.com/coze-dev/coze-go"​
+)​
+​
+// How to effectuate OpenAPI authorization through the OAuth authorization code method.​
+//​
+// Firstly, users need to access https://www.coze.com/open/oauth/apps. For the cn environment,​
+// users need to access https://www.coze.cn/open/oauth/apps to create an OAuth App of the type​
+// of Web application.​
+// The specific creation process can be referred to in the document:​
+// https://www.coze.com/docs/developer_guides/oauth_code. For the cn environment, it can be​
+// accessed at https://www.coze.cn/docs/developer_guides/oauth_code.​
+// After the creation is completed, the client ID, client secret, and redirect link, can be​
+// obtained. For the client secret, users need to keep it securely to avoid leakage.​
+​
+func main() {​
+   redirectURI := os.Getenv("COZE_WEB_OAUTH_REDIRECT_URI")​
+   clientSecret := os.Getenv("COZE_WEB_OAUTH_CLIENT_SECRET")​
+   clientID := os.Getenv("COZE_WEB_OAUTH_CLIENT_ID")​
+   ctx := context.Background()​
+​
+   // The default access is api.coze.com, but if you need to access api.coze.cn,​
+   // please use base_url to configure the api endpoint to access​
+   cozeAPIBase := os.Getenv("COZE_API_BASE")​
+   if cozeAPIBase == "" {​
+      cozeAPIBase = coze.ComBaseURL​
+   }​
+​
+   // The sdk offers the WebOAuthClient class to establish an authorization for Web OAuth.​
+   // Firstly, it is required to initialize the WebOAuthApp with the client ID and client secret.​
+   oauth, err := coze.NewWebOAuthClient(clientID, clientSecret, coze.WithAuthBaseURL(cozeAPIBase))​
+   if err != nil {​
+      fmt.Printf("Failed to create OAuth client: %v\n", err)​
+      return​
+   }​
+​
+   // Generate the authorization link and direct the user to open it.​
+   oauthURL := oauth.GetOAuthURL(ctx, &coze.GetWebOAuthURLReq{​
+      RedirectURI: redirectURI,​
+      State:       "state",​
+   })​
+   fmt.Println(oauthURL)​
+​
+   // The space permissions for which the Access Token is granted can be specified. As following codes:​
+   // oauthURL = oauth.GetOAuthURL(&coze.GetWebOAuthURLReq{​
+   //     RedirectURI: redirectURI,​
+   //     State:       "state",​
+   //     WorkspaceID: &workspaceID,​
+   // })​
+   // fmt.Println(oauthURL)​
+​
+   // After the user clicks the authorization consent button, the coze web page will redirect​
+   // to the redirect address configured in the authorization link and carry the authorization​
+   // code and state parameters in the address via the query string.​
+   //​
+   // Get from the query of the redirect interface: query.get('code')​
+   code := "mock code"​
+​
+   // After obtaining the code after redirection, the interface to exchange the code for a​
+   // token can be invoked to generate the coze access_token of the authorized user.​
+   resp, err := oauth.GetAccessToken(ctx, &coze.GetWebOAuthAccessTokenReq{​
+      Code:        code,​
+      RedirectURI: redirectURI,​
+   })​
+   if err != nil {​
+      fmt.Printf("Failed to get access token: %v\n", err)​
+      return​
+   }​
+   fmt.Println(resp)​
+​
+   // When the token expires, you can also refresh and re-obtain the token​
+   resp, err = oauth.RefreshToken(ctx, resp.RefreshToken)​
+   if err != nil {​
+      fmt.Printf("Failed to refresh token: %v\n", err)​
+      return​
+   }​
+​
+   fmt.Printf("%+v\n", resp)​
+​
+   // you can get request log by getLogID method​
+   fmt.Println(resp.LogID())​
+​
+   // use the access token to init Coze client​
+   cozeCli := coze.NewCozeAPI(coze.NewTokenAuth(resp.AccessToken))​
+   _, err = cozeCli.Chat.Create(ctx, &coze.CreateChatsReq{​
+      // chat request params​
+   })​
+   if err != nil {​
+      cozeErr := coze.Error{}​
+      if errors.As(err, &cozeErr) {​
+         // no permission error code​
+         if cozeErr.Code == 4101 || cozeErr.Code == 4100 {​
+            // request user authorization agin​
+            // redirect to oauthURL​
+            // call http.Redirect(w, r, oauthURL, http.StatusFound)​
+         }​
+      }​
+   }​
+   _ = cozeCli​
+}​
+​
+2 迁移工作空间到企业团队​
+操作步骤可参考​迁移空间到团队或企业。​
+3 重新触发授权​
+企业的超级管理员或管理员登录应用触发授权，然后在扣子平台重新安装应用，安装的步骤请参见​OAuth 应用管理。​
+​
+​
+​
+​
+​
+步骤三：线上观测​
+成功迁移工作空间之后，应实时监测线上服务的请求成功率，确保线上服务无异常。​
+如果线上授权相关逻辑持续稳定运行，可以酌情考虑线下原授权代码，切换为新的授权凭证来访问扣子 OpenAPI。​
+授权团队/企业访问个人账号资源​
+购买扣子企业/团队版并完成个人工作空间迁移后，因会话、音色等账号级别的资源无法自动迁移，若希望让团队、企业下的访问令牌也能访问原个人空间中的账号级别的资源，超级管理员或管理员可以手动授权团队或企业版中的 Token 访问个人账号中的会话、音色等账号级资源。​
+1.
+超级管理员或管理员切换到企业团队账号，创建个人访问令牌或 Oauth 应用，并授予会话管理等账号层级的权限，具体操作步骤请参见​OAuth JWT 授权（开发者）和​添加个人访问令牌。​
+​
+​
+​
+​
+​
+说明
+仅支持 PAT 和 AppAuth 授权，不支持 OBO 授权。​
+仅支持授权账号层级的权限，不支持授权工作空间层级的权限，你可以在授权对话框的权限列表中查看该权限的层级属性。​
+​
+2.
+超级管理员或管理员访问个人账号资源授权页面，可以查看本人创建的个人访问令牌，以及企业或团队中创建的所有 AppAuth。​
+​
+​
+​
+​
+​
+3.
+单击操作列中的授权。​
+授权后，你可以使用该 Token 访问你个人账号下的账号级资源。​
+​
+上一篇
+如何实现会话隔离
+下一篇
+Chat SDK 概述
+迁移 API 授权
+注意事项
+步骤一：确定授权类型
+步骤二：更新 API 授权
+AppAuth 授权场景
+1 重新授权 OAuth 应用
+2 更新授权代码
+3 迁移工作空间到企业团队
+个人访问令牌场景
+1 创建新的个人访问令牌
+2 更新授权代码
+3 迁移工作空间到企业团队
+OBO 授权场景
+1 更新授权代码
+2 迁移工作空间到企业团队
+3 重新触发授权
+步骤三：线上观测
+授权团队/企业访问个人账号资源
+rangeDom
