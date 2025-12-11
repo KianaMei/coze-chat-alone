@@ -80,7 +80,7 @@ const handleVoiceEnd = async () => {
   try {
     const text = await stopRecording()
     if (text.trim()) {
-      inputContent.value = text
+      await sendMessage(text)
     }
   } catch (e) {
     console.error('转录失败:', e)
