@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volcano Chat SDK Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .demo-container {
+      display: flex;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .config-panel {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .config-panel h2 {
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #e57364;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(135deg, #e57364, #d4574a);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .chat-container {
+      width: 400px;
+      height: 600px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .code-preview {
+      margin-top: 20px;
+      background: #1e1e2e;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+
+    .code-preview code {
+      color: #cdd6f4;
+      font-family: 'Fira Code', monospace;
+      font-size: 12px;
+      white-space: pre;
+    }
+
+    .code-preview .keyword { color: #cba6f7; }
+    .code-preview .string { color: #a6e3a1; }
+    .code-preview .property { color: #89b4fa; }
+  </style>
+</head>
+<body>
+  <h1>Volcano Chat SDK Demo</h1>
+
+  <div class="demo-container">
+    <div class="config-panel">
+      <h2>SDK 配置</h2>
+
+      <div class="form-group">
+        <label>Workflow ID</label>
+        <input type="text" id="workflowId" value="7582422134879682614">
+      </div>
+
+      <div class="form-group">
+        <label>App ID</label>
+        <input type="text" id="appId" value="7582218686560911366">
+      </div>
+
+      <div class="form-group">
+        <label>Token</label>
+        <input type="text" id="token" value="pat_xxx" placeholder="输入你的 PAT Token">
+      </div>
+
+      <div class="form-group">
+        <label>Voice ID (可选)</label>
+        <input type="text" id="voiceId" value="7426725529589596187">
+      </div>
+
+      <div class="form-group">
+        <label>User ID</label>
+        <input type="text" id="userId" value="demo_user_001">
+      </div>
+
+      <button onclick="initSDK()">初始化 SDK</button>
+      <button onclick="destroySDK()" style="background: #666;">销毁 SDK</button>
+
+      <div class="code-preview">
+        <code id="codePreview"></code>
+      </div>
+    </div>
+
+    <div id="chat-container" class="chat-container">
+      <!-- SDK 将渲染到这里 -->
+      <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #999;">
+        点击"初始化 SDK"开始
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入 SDK（打包后） -->
+  <script src="../dist-sdk/volcano-chat-sdk.umd.js"></script>
+
+  <script>
+    let chatApp = null;
+
+    function updateCodePreview() {
+      const code = `<span class="keyword">new</span> VolcanoSDK.<span class="property">ChatApp</span>({
+  <span class="property">config</span>: {
+    <span class="property">workflowId</span>: <span class="string">'${document.getElementById('workflowId').value}'</span>,
+    <span class="property">appId</span>: <span class="string">'${document.getElementById('appId').value}'</span>,
+    <span class="property">token</span>: <span class="string">'${document.getElementById('token').value}'</span>,
+    <span class="property">voiceId</span>: <span class="string">'${document.getElementById('voiceId').value}'</span>
+  },
+  <span class="property">userInfo</span>: {
+    <span class="property">id</span>: <span class="string">'${document.getElementById('userId').value}'</span>
+  },
+  <span class="property">container</span>: <span class="string">'#chat-container'</span>
+})`;
+      document.getElementById('codePreview').innerHTML = code;
+    }
+
+    function initSDK() {
+      if (chatApp) {
+        chatApp.destroy();
+      }
+
+      document.getElementById('chat-container').innerHTML = '';
+
+      chatApp = new VolcanoSDK.ChatApp({
+        config: {
+          workflowId: document.getElementById('workflowId').value,
+          appId: document.getElementById('appId').value,
+          token: document.getElementById('token').value,
+          voiceId: document.getElementById('voiceId').value
+        },
+        userInfo: {
+          id: document.getElementById('userId').value
+        },
+        container: '#chat-container'
+      });
+    }
+
+    function destroySDK() {
+      if (chatApp) {
+        chatApp.destroy();
+        chatApp = null;
+        document.getElementById('chat-container').innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #999;">
+            点击"初始化 SDK"开始
+          </div>
+        `;
+      }
+    }
+
+    // 监听输入变化更新代码预览
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', updateCodePreview);
+    });
+
+    // 初始化代码预览
+    updateCodePreview();
+  </script>
+</body>
+</html>

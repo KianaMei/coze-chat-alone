@@ -10,26 +10,93 @@ const emit = defineEmits<{
   (e: 'debugUrl', url: string): void
 }>()
 
-const { 
-  messages, 
+const {
+  messages,
   conversations,
-  isLoading, 
-  isCreatingConversation, 
+  isLoading,
+  isCreatingConversation,
   isLoadingConversations,
   conversationId,
-  error, 
-  debugUrl, 
-  sendMessage, 
-  clearMessages, 
+  error,
+  debugUrl,
+  isSpeaking,
+  speakingMessageId,
+  sendMessage,
+  stopRequest,
+  clearMessages,
   createNewConversation,
   fetchConversationList,
-  switchConversation
+  switchConversation,
+  copyText,
+  speakText,
+  stopSpeaking
 } = useCozeChat(props.sessionName)
-const { isRecording, isTranscribing, error: voiceError, startRecording, stopRecording, cancelRecording } = useVoiceInput()
+const { isRecording, isTranscribing, error: voiceError, startRecording, stopRecording } = useVoiceInput()
 
 const inputContent = ref('')
 const messageListRef = ref<HTMLElement | null>(null)
+const textareaRef = ref<HTMLTextAreaElement | null>(null)
+const expandBtnRef = ref<HTMLButtonElement | null>(null)
 const showHistoryPanel = ref(false)
+const thinkingSeconds = ref(0)
+const finalThinkingTime = ref<number | null>(null)
+const copiedMessageId = ref<string | null>(null)
+const isInputExpanded = ref(false)
+const showExpandBtn = ref(false)
+let thinkingTimer: ReturnType<typeof setInterval> | null = null
+
+// 检测是否需要显示扩展按钮
+const checkExpandBtn = () => {
+  if (!textareaRef.value) return
+  const maxCollapsed = 56
+  showExpandBtn.value = textareaRef.value.scrollHeight > maxCollapsed
+}
+
+const toggleExpand = () => {
+  isInputExpanded.value = !isInputExpanded.value
+  nextTick(() => {
+    if (textareaRef.value && isInputExpanded.value) {
+      // 获取聊天窗口高度，计算展开高度
+      const chatWidget = textareaRef.value.closest('.chat-widget')
+      if (chatWidget) {
+        const widgetHeight = chatWidget.clientHeight
+        const expandedHeight = widgetHeight - 130
+        const currentHeight = textareaRef.value.offsetHeight
+        const extraHeight = expandedHeight - currentHeight
+        textareaRef.value.style.height = expandedHeight + 'px'
+        textareaRef.value.style.marginTop = -extraHeight + 'px'
+        // 按钮跟着到顶部
+        if (expandBtnRef.value) {
+          expandBtnRef.value.style.bottom = 'auto'
+          expandBtnRef.value.style.top = -extraHeight - 26 + 'px'
+        }
+      }
+    } else if (textareaRef.value) {
+      textareaRef.value.style.height = ''
+      textareaRef.value.style.marginTop = ''
+      if (expandBtnRef.value) {
+        expandBtnRef.value.style.bottom = ''
+        expandBtnRef.value.style.top = ''
+      }
+    }
+  })
+}
+
+const startThinkingTimer = () => {
+  thinkingSeconds.value = 0
+  finalThinkingTime.value = null
+  thinkingTimer = setInterval(() => {
+    thinkingSeconds.value++
+  }, 1000)
+}
+
+const stopThinkingTimer = () => {
+  if (thinkingTimer) {
+    clearInterval(thinkingTimer)
+    thinkingTimer = null
+    finalThinkingTime.value = thinkingSeconds.value
+  }
+}
 
 marked.setOptions({
   breaks: true,
@@ -53,10 +120,41 @@ watch(debugUrl, (url) => {
   }
 })
 
+// 监听加载状态，停止计时器
+watch(isLoading, (loading) => {
+  if (!loading && thinkingTimer) {
+    stopThinkingTimer()
+  }
+})
+
+const handleStop = () => {
+  stopRequest()
+  stopThinkingTimer()
+}
+
+const handleCopy = async (text: string, messageId: string) => {
+  const success = await copyText(text)
+  if (success) {
+    copiedMessageId.value = messageId
+    setTimeout(() => {
+      copiedMessageId.value = null
+    }, 2000)
+  }
+}
+
+const handleSpeak = (text: string, messageId: string) => {
+  if (speakingMessageId.value === messageId) {
+    stopSpeaking()
+  } else {
+    speakText(text, messageId)
+  }
+}
+
 const handleSend = async () => {
   if (!inputContent.value.trim() || isLoading.value) return
   const content = inputContent.value
   inputContent.value = ''
+  startThinkingTimer()
   await sendMessage(content)
 }
 
@@ -80,6 +178,7 @@ const handleVoiceEnd = async () => {
   try {
     const text = await stopRecording()
     if (text.trim()) {
+      startThinkingTimer()
       await sendMessage(text)
     }
   } catch (e) {
@@ -90,6 +189,11 @@ const handleVoiceEnd = async () => {
 const handleNewConversation = async () => {
   if (isLoading.value || isCreatingConversation.value) return
   await createNewConversation()
+}
+
+const clearScreen = () => {
+  // 只清空屏幕上的消息，不改变 conversationId
+  messages.value = []
 }
 
 const handleOpenHistory = async () => {
@@ -122,6 +226,11 @@ watch(messages, async () => {
     messageListRef.value.scrollTop = messageListRef.value.scrollHeight
   }
 }, { deep: true })
+
+watch(inputContent, async () => {
+  await nextTick()
+  checkExpandBtn()
+})
 </script>
 
 <template>
@@ -154,20 +263,24 @@ watch(messages, async () => {
           </svg>
           <span v-else class="mini-loader"></span>
         </button>
-        <button 
-          class="new-chat-btn" 
-          @click="handleNewConversation" 
+        <button
+          class="new-chat-btn"
+          @click="handleNewConversation"
           :disabled="isLoading || isCreatingConversation"
-          title="新对话"
+          title="新建对话"
         >
           <svg v-if="!isCreatingConversation" width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <span v-else class="mini-loader"></span>
         </button>
-        <button class="clear-btn" @click="clearMessages" title="清空对话">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M3 6h18M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <button class="clear-btn" @click="clearScreen" title="清屏">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <!-- 扫把柄 -->
+            <line x1="18" y1="3" x2="9" y2="12" stroke-linecap="round"/>
+            <!-- 扫把头 -->
+            <path d="M9 12L6 15M9 12L8 16M9 12L12 14" stroke-linecap="round"/>
+            <path d="M6 15L4 19M8 16L7 20M12 14L13 18" stroke-linecap="round"/>
           </svg>
         </button>
       </div>
@@ -228,7 +341,7 @@ watch(messages, async () => {
         :key="msg.id"
         :class="['message-row', msg.role]"
       >
-        <template v-if="!(msg.role === 'assistant' && !msg.content)">
+        <template v-if="msg.role === 'user' || msg.content">
           <div class="avatar">
             <template v-if="msg.role === 'user'">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -243,10 +356,42 @@ watch(messages, async () => {
               </svg>
             </template>
           </div>
-          <div class="bubble">
-            <div v-if="msg.role === 'assistant'" class="markdown-content" v-html="renderMarkdown(msg.content)"></div>
-            <template v-else>{{ msg.content }}</template>
-            <span v-if="msg.isStreaming && msg.content" class="typing-cursor"></span>
+          <div class="message-content">
+            <div class="bubble">
+              <div v-if="msg.role === 'assistant'" class="markdown-content" v-html="renderMarkdown(msg.content)"></div>
+              <template v-else>{{ msg.content }}</template>
+              <span v-if="msg.isStreaming && msg.content" class="typing-cursor"></span>
+            </div>
+            <div v-if="msg.content && !msg.isStreaming" class="message-actions">
+              <button
+                class="action-btn"
+                :class="{ copied: copiedMessageId === msg.id }"
+                @click="handleCopy(msg.content, msg.id)"
+                :title="copiedMessageId === msg.id ? '已复制' : '复制'"
+              >
+                <svg v-if="copiedMessageId !== msg.id" width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <svg v-else width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button
+                class="action-btn"
+                :class="{ speaking: speakingMessageId === msg.id }"
+                @click="handleSpeak(msg.content, msg.id)"
+                :title="speakingMessageId === msg.id ? '停止朗读' : '朗读'"
+              >
+                <svg v-if="speakingMessageId !== msg.id" width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <svg v-else width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </template>
       </div>
@@ -263,7 +408,17 @@ watch(messages, async () => {
           <span class="thinking-dots">
             <span></span><span></span><span></span>
           </span>
+          <span class="thinking-time">{{ thinkingSeconds }}秒</span>
+          <button class="stop-btn" @click="handleStop" title="停止">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+              <rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/>
+            </svg>
+          </button>
         </div>
+      </div>
+
+      <div v-else-if="finalThinkingTime !== null && messages.length > 0" class="thinking-done">
+        <span class="thinking-done-text">已思考 {{ finalThinkingTime }} 秒</span>
       </div>
 
       <div v-if="isLoading && messages.length === 0" class="loading-indicator">
@@ -300,8 +455,21 @@ watch(messages, async () => {
         </template>
       </button>
 
-      <div class="text-input-wrap">
+      <div :class="['text-input-wrap', { expanded: isInputExpanded }]">
+        <button
+          v-if="showExpandBtn"
+          ref="expandBtnRef"
+          class="expand-btn"
+          @click="toggleExpand"
+          :title="isInputExpanded ? '收起' : '展开'"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+            <path v-if="!isInputExpanded" d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path v-else d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
         <textarea
+          ref="textareaRef"
           v-model="inputContent"
           placeholder="输入消息..."
           rows="1"
@@ -326,720 +494,6 @@ watch(messages, async () => {
   </div>
 </template>
 
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&display=swap');
-
-.chat-widget {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  font-family: 'Noto Sans SC', sans-serif;
-  background: #fdfcfa;
-}
-
-.chat-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px;
-  background: #fff;
-  border-bottom: 1px solid #f0ebe4;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.bot-avatar {
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #e57364, #d4574a);
-  border-radius: 10px;
-  color: #fff;
-}
-
-.header-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.title {
-  font-weight: 500;
-  font-size: 14px;
-  color: #2d2d2d;
-}
-
-.status {
-  font-size: 11px;
-  color: #2d9587;
-}
-
-.header-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.history-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  color: #bbb;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.history-btn:hover {
-  background: #f5f0ea;
-  color: #e57364;
-}
-
-.history-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.new-chat-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  color: #bbb;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.new-chat-btn:hover {
-  background: #f5f0ea;
-  color: #e57364;
-}
-
-.new-chat-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.clear-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  color: #bbb;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.clear-btn:hover {
-  background: #f5f0ea;
-  color: #e57364;
-}
-
-.message-list {
-  flex: 1;
-  overflow-y: auto;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  background: linear-gradient(180deg, #fdfcfa 0%, #faf7f2 100%);
-}
-
-.empty-state {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.empty-illustration {
-  color: #ddd5ca;
-  margin-bottom: 8px;
-}
-
-.empty-text {
-  font-size: 15px;
-  font-weight: 500;
-  color: #666;
-}
-
-.empty-hint {
-  font-size: 12px;
-  color: #aaa;
-}
-
-.message-row {
-  display: flex;
-  gap: 8px;
-  max-width: 85%;
-  animation: slideUp 0.25s ease;
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.message-row.user {
-  flex-direction: row-reverse;
-  align-self: flex-end;
-}
-
-.message-row.assistant {
-  align-self: flex-start;
-}
-
-.avatar {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-}
-
-.message-row.user .avatar {
-  background: linear-gradient(135deg, #2d9587, #248f7a);
-  color: #fff;
-}
-
-.message-row.assistant .avatar {
-  background: linear-gradient(135deg, #e57364, #d4574a);
-  color: #fff;
-}
-
-.bubble {
-  padding: 10px 14px;
-  border-radius: 14px;
-  font-size: 13px;
-  line-height: 1.55;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.message-row.user .bubble {
-  background: linear-gradient(135deg, #2d9587, #248f7a);
-  color: #fff;
-  border-bottom-right-radius: 4px;
-}
-
-.message-row.assistant .bubble {
-  background: #fff;
-  color: #3d3d3d;
-  border: 1px solid #f0ebe4;
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-}
-
-.typing-cursor {
-  display: inline-block;
-  width: 2px;
-  height: 14px;
-  background: #e57364;
-  margin-left: 2px;
-  animation: blink 0.7s infinite;
-  vertical-align: middle;
-}
-
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-.loading-indicator {
-  display: flex;
-  justify-content: center;
-  padding: 16px;
-}
-
-.dot-loader {
-  display: flex;
-  gap: 5px;
-}
-
-.dot-loader span {
-  width: 7px;
-  height: 7px;
-  background: #e57364;
-  border-radius: 50%;
-  animation: bounce 1.2s infinite;
-}
-
-.dot-loader span:nth-child(2) { animation-delay: 0.15s; }
-.dot-loader span:nth-child(3) { animation-delay: 0.3s; }
-
-@keyframes bounce {
-  0%, 60%, 100% { transform: translateY(0); }
-  30% { transform: translateY(-6px); }
-}
-
-.error-msg {
-  padding: 10px 14px;
-  background: rgba(229, 115, 100, 0.1);
-  border: 1px solid rgba(229, 115, 100, 0.2);
-  border-radius: 10px;
-  color: #d4574a;
-  font-size: 12px;
-  text-align: center;
-}
-
-.input-area {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 16px;
-  background: #fff;
-  border-top: 1px solid #f0ebe4;
-}
-
-.mic-btn {
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f8f5f0;
-  border: 1px solid #e8e3db;
-  border-radius: 10px;
-  color: #888;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.mic-btn:hover:not(:disabled) {
-  background: #f0ebe4;
-  color: #666;
-}
-
-.mic-btn.recording {
-  background: linear-gradient(135deg, #e57364, #d4574a);
-  border-color: transparent;
-  color: #fff;
-}
-
-.rec-indicator {
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border-radius: 50%;
-  animation: pulse 0.9s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.25); opacity: 0.7; }
-}
-
-.mini-loader {
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(0,0,0,0.1);
-  border-top-color: #888;
-  border-radius: 50%;
-  animation: spin 0.6s linear infinite;
-}
-
-.mini-loader.light {
-  border-color: rgba(255,255,255,0.3);
-  border-top-color: #fff;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.text-input-wrap {
-  flex: 1;
-}
-
-.text-input-wrap textarea {
-  width: 100%;
-  background: #f8f5f0;
-  border: 1px solid #e8e3db;
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 13px;
-  font-family: inherit;
-  color: #333;
-  resize: none;
-  transition: all 0.2s;
-}
-
-.text-input-wrap textarea::placeholder {
-  color: #bbb;
-}
-
-.text-input-wrap textarea:focus {
-  outline: none;
-  border-color: #2d9587;
-  background: #fff;
-}
-
-.text-input-wrap textarea:disabled {
-  opacity: 0.5;
-}
-
-.send-btn {
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #e57364, #d4574a);
-  border: none;
-  border-radius: 10px;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 2px 6px rgba(229, 115, 100, 0.25);
-}
-
-.send-btn:hover:not(:disabled) {
-  transform: scale(1.04);
-  box-shadow: 0 3px 10px rgba(229, 115, 100, 0.35);
-}
-
-.send-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.voice-toast {
-  position: absolute;
-  bottom: 70px;
-  left: 16px;
-  right: 16px;
-  padding: 10px 14px;
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  border-radius: 10px;
-  color: #b45309;
-  font-size: 12px;
-  text-align: center;
-}
-
-.thinking-indicator {
-  display: flex;
-  gap: 8px;
-  align-self: flex-start;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.thinking-avatar {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #e57364, #d4574a);
-  color: #fff;
-}
-
-.thinking-bubble {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 16px;
-  background: linear-gradient(135deg, rgba(229, 115, 100, 0.08), rgba(212, 87, 74, 0.05));
-  border: 1px solid rgba(229, 115, 100, 0.15);
-  border-radius: 14px;
-  border-bottom-left-radius: 4px;
-}
-
-.thinking-text {
-  font-size: 13px;
-  color: #e57364;
-  font-weight: 500;
-}
-
-.thinking-dots {
-  display: flex;
-  gap: 3px;
-}
-
-.thinking-dots span {
-  width: 5px;
-  height: 5px;
-  background: #e57364;
-  border-radius: 50%;
-  animation: thinkBounce 1.4s infinite ease-in-out both;
-}
-
-.thinking-dots span:nth-child(1) { animation-delay: 0s; }
-.thinking-dots span:nth-child(2) { animation-delay: 0.16s; }
-.thinking-dots span:nth-child(3) { animation-delay: 0.32s; }
-
-@keyframes thinkBounce {
-  0%, 80%, 100% { 
-    transform: scale(0.6);
-    opacity: 0.4;
-  }
-  40% { 
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.markdown-content {
-  line-height: 1.6;
-}
-
-.markdown-content :deep(p) {
-  margin: 0 0 8px;
-}
-
-.markdown-content :deep(p:last-child) {
-  margin-bottom: 0;
-}
-
-.markdown-content :deep(code) {
-  background: rgba(229, 115, 100, 0.1);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-family: 'Fira Code', 'Monaco', monospace;
-  color: #d4574a;
-}
-
-.markdown-content :deep(pre) {
-  background: #1e1e2e;
-  padding: 12px 14px;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 8px 0;
-}
-
-.markdown-content :deep(pre code) {
-  background: transparent;
-  padding: 0;
-  color: #cdd6f4;
-  font-size: 12px;
-}
-
-.markdown-content :deep(ul),
-.markdown-content :deep(ol) {
-  margin: 8px 0;
-  padding-left: 20px;
-}
-
-.markdown-content :deep(li) {
-  margin: 4px 0;
-}
-
-.markdown-content :deep(blockquote) {
-  margin: 8px 0;
-  padding: 8px 12px;
-  border-left: 3px solid #e57364;
-  background: rgba(229, 115, 100, 0.05);
-  border-radius: 0 6px 6px 0;
-}
-
-.markdown-content :deep(a) {
-  color: #2d9587;
-  text-decoration: none;
-}
-
-.markdown-content :deep(a:hover) {
-  text-decoration: underline;
-}
-
-.markdown-content :deep(strong) {
-  font-weight: 600;
-  color: #2d2d2d;
-}
-
-.markdown-content :deep(h1),
-.markdown-content :deep(h2),
-.markdown-content :deep(h3),
-.markdown-content :deep(h4) {
-  margin: 12px 0 8px;
-  font-weight: 600;
-  color: #2d2d2d;
-}
-
-.markdown-content :deep(h1) { font-size: 18px; }
-.markdown-content :deep(h2) { font-size: 16px; }
-.markdown-content :deep(h3) { font-size: 14px; }
-
-.markdown-content :deep(hr) {
-  border: none;
-  border-top: 1px solid #f0ebe4;
-  margin: 12px 0;
-}
-
-.markdown-content :deep(table) {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 8px 0;
-  font-size: 12px;
-}
-
-.markdown-content :deep(th),
-.markdown-content :deep(td) {
-  border: 1px solid #f0ebe4;
-  padding: 6px 10px;
-  text-align: left;
-}
-
-.markdown-content :deep(th) {
-  background: #faf7f2;
-  font-weight: 500;
-}
-
-.history-panel {
-  position: absolute;
-  top: 60px;
-  left: 12px;
-  right: 12px;
-  max-height: 400px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.history-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px;
-  border-bottom: 1px solid #f0ebe4;
-}
-
-.history-title {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-}
-
-.history-close {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  border-radius: 6px;
-  color: #999;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.history-close:hover {
-  background: #f5f0ea;
-  color: #666;
-}
-
-.history-list {
-  flex: 1;
-  overflow-y: auto;
-  padding: 8px;
-}
-
-.history-loading,
-.history-empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 24px;
-  color: #999;
-  font-size: 13px;
-}
-
-.history-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.history-item:hover {
-  background: #f8f5f0;
-}
-
-.history-item.active {
-  background: linear-gradient(135deg, rgba(229, 115, 100, 0.1), rgba(212, 87, 74, 0.05));
-}
-
-.history-item-icon {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f5f0ea;
-  border-radius: 6px;
-  color: #888;
-}
-
-.history-item.active .history-item-icon {
-  background: linear-gradient(135deg, #e57364, #d4574a);
-  color: #fff;
-}
-
-.history-item-content {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.history-item-name {
-  font-size: 13px;
-  color: #333;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.history-item-time {
-  font-size: 11px;
-  color: #aaa;
-}
-
-.history-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.2);
-  z-index: 99;
-}
+<style>
+@import '~/assets/css/chat-widget.css';
 </style>

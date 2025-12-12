@@ -1,5 +1,6 @@
 {
-  "name": "chat-widget",
+  "name": "volcano-chat-sdk",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,7 +8,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "build:sdk": "vite build --config vite.sdk.config.ts"
   },
   "dependencies": {
     "@arco-design/web-vue": "^2.56.3",
@@ -17,6 +19,9 @@
   },
   "devDependencies": {
     "@babel/code-frame": "^7.27.1",
-    "typescript": "^5.8.3"
+    "@vitejs/plugin-vue": "^5.2.4",
+    "terser": "^5.39.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.0.0"
   }
 }

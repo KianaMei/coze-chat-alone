@@ -1,7 +1,9 @@
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
+import type { ChatConfig } from './index'
 
 export function useVoiceInput() {
-  const config = useRuntimeConfig()
+  // 从 SDK 注入的配置获取 token
+  const sdkConfig = inject<ChatConfig>('sdkConfig')
 
   const isRecording = ref(false)
   const isTranscribing = ref(false)
@@ -13,8 +15,14 @@ export function useVoiceInput() {
   let audioChunks: Float32Array[] = []
 
   // 获取 token
-  const getToken = (): string => {
-    return config.public.tempToken as string
+  const getToken = async (): Promise<string> => {
+    if (!sdkConfig) {
+      throw new Error('[VolcanoSDK] Config not found')
+    }
+    if (typeof sdkConfig.token === 'function') {
+      return await sdkConfig.token()
+    }
+    return sdkConfig.token
   }
 
   // 开始录音
@@ -194,7 +202,7 @@ export function useVoiceInput() {
 
   // 调用 Coze ASR API
   const transcribeAudio = async (audioBlob: Blob): Promise<string> => {
-    const token = getToken()
+    const token = await getToken()
 
     const formData = new FormData()
     formData.append('file', audioBlob, 'recording.wav')

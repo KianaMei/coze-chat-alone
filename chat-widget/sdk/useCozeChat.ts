@@ -1,4 +1,5 @@
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
+import type { ChatConfig } from './index'
 
 // 消息类型
 export interface ChatMessage {
@@ -76,7 +77,12 @@ interface CozeMessage {
 const getStorageKey = (sessionName: string) => `coze_conversation_${sessionName}`
 
 export function useCozeChat(sessionName: string) {
-  const config = useRuntimeConfig()
+  // 从 SDK 注入的配置获取
+  const sdkConfig = inject<ChatConfig>('sdkConfig')
+
+  if (!sdkConfig) {
+    throw new Error('[VolcanoSDK] Config not found. Make sure to provide sdkConfig via app.provide()')
+  }
 
   // 状态
   const messages = ref<ChatMessage[]>([])
@@ -99,7 +105,10 @@ export function useCozeChat(sessionName: string) {
 
   // Token 获取
   const getToken = async (): Promise<string> => {
-    return config.public.tempToken as string
+    if (typeof sdkConfig.token === 'function') {
+      return await sdkConfig.token()
+    }
+    return sdkConfig.token
   }
 
   // 获取对话列表
@@ -108,7 +117,7 @@ export function useCozeChat(sessionName: string) {
       isLoadingConversations.value = true
       const token = await getToken()
 
-      const response = await fetch(`https://api.coze.cn/v1/conversations?bot_id=${config.public.cozeBotId}&page_num=1&page_size=50&sort_order=DESC&connector_id=1024`, {
+      const response = await fetch(`https://api.coze.cn/v1/conversations?bot_id=${sdkConfig.botId}&page_num=1&page_size=50&sort_order=DESC&connector_id=1024`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -275,7 +284,7 @@ export function useCozeChat(sessionName: string) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          bot_id: config.public.cozeBotId
+          bot_id: sdkConfig.botId
         })
       })
 
@@ -342,8 +351,8 @@ export function useCozeChat(sessionName: string) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          workflow_id: config.public.cozeWorkflowId,
-          app_id: config.public.cozeAppId,
+          workflow_id: sdkConfig.workflowId,
+          app_id: sdkConfig.appId,
           additional_messages: [
             {
               role: 'user',
@@ -450,7 +459,7 @@ export function useCozeChat(sessionName: string) {
       speakingMessageId.value = messageId
 
       const token = await getToken()
-      const voiceId = config.public.cozeVoiceId as string
+      const voiceId = sdkConfig.voiceId
 
       // 使用 WebSocket 流式 TTS
       const ws = new WebSocket(`wss://ws.coze.cn/v1/audio/speech?authorization=Bearer ${token}`)

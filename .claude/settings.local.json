@@ -18,7 +18,11 @@
       "Bash(netstat:*)",
       "Bash(taskkill:*)",
       "Bash(powershell:*)",
-      "Bash(del:*)"
+      "Bash(del:*)",
+      "Bash(npx nuxi typecheck:*)",
+      "WebSearch",
+      "Bash(npm install:*)",
+      "Bash(npm run build:sdk:*)"
     ]
   }
 }
